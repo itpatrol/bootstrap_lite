@@ -249,6 +249,7 @@ function bootstrap_lite_button($variables) {
       $button_class = 'btn-info';
       break;        
     case 'delete':
+    case 'cancel':
       $button_class = 'btn-danger';
       break;        
   };
