@@ -72,18 +72,6 @@ function bootstrap_lite_js_alter(&$js) {
 }
 
 /**
- * Internal function to make sure Header block is rendered.
- */
-function bootstrap_lite_is_header($set){
-  static $is_header;
-  if(0 == strcmp($set, 'get') ){
-    return $is_header;
-  } else{
-    $is_header = $set;
-  }
-}
-
-/**
  * Implements hook_preprocess_page().
  */
 function bootstrap_lite_preprocess_page(&$variables){
