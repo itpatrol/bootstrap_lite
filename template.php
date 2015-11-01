@@ -141,8 +141,8 @@ function bootstrap_lite_preprocess_page(&$variables){
     }
     if($navbar_position == 'static-top'){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
-    }
-  }*/
+    }*/
+  }
 }
 
 
