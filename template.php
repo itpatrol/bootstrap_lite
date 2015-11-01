@@ -823,8 +823,8 @@ function bootstrap_lite_admin_block_content($variables) {
  * @see user-picture.tpl.php
  */
 function bootstrap_lite_preprocess_user_picture(&$variables) {
-  print_r($variables);
-  $variables['user_picture'] = '';
+ // print_r($variables);
+//  $variables['user_picture'] = '';
 /*  if (config_get('system.core', 'user_pictures')) {
     $account = $variables['account'];
     if (!empty($account->picture)) {
@@ -867,6 +867,7 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
  * Implements hook_preprocess_comment().
  */
 function bootstrap_lite_preprocess_comment(&$variables){
+  print_r($variables);
   if (theme_get_setting('bootstrap_lite_datetime')) {
     $comment = $variables['elements']['#comment'];
     $variables['timeago'] = t('@time ago', array('@time' => format_interval(time() - $comment->changed)));
