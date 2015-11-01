@@ -318,7 +318,7 @@ table.system-status-report tr.error td.status-icon div:before {
   padding-right: 10px;
   background: none;
   float: left;
-  color: #a94442;
+  color: red;
   padding-left: 15px;
 }
 
@@ -330,7 +330,7 @@ table.system-status-report tr.ok td.status-icon div:before {
   padding-right: 10px;
   background: none;
   float: left;
-  color: #3c763d;
+  color: green;
   padding-left: 15px;
 }
 
@@ -342,7 +342,7 @@ table.system-status-report tr.warning td.status-icon div:before {
   padding-right: 10px;
   background: none;
   float: left;
-  color: #8a6d3b;
+  color: orange;
   padding-left: 15px;
 }
 
