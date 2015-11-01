@@ -143,7 +143,7 @@ function bootstrap_lite_preprocess_page(&$variables){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
     }*/
   }
-  print_r($variables);
+//  print_r($variables);
 }
 
 
