@@ -294,14 +294,20 @@ ul.pager {
 }
 
 /* Status report*/
-td.status-icon {
-  width: 25px;
+table.system-status-report td.status-icon {
+  width: 30px;
 }
 table.system-status-report tr.error td.status-icon div,
 table.system-status-report tr.ok td.status-icon div,
 table.system-status-report tr.warning td.status-icon div,
 table.system-status-report tr.info td.status-icon div {
   background: none;
+}
+
+table.system-status-report td {
+  padding: 8px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
 }
 
 table.system-status-report tr.error td.status-icon div:before {
