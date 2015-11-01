@@ -147,6 +147,7 @@ function bootstrap_lite_preprocess_page(&$variables){
     $menu = menu_navigation_links(variable_get('menu_secondary_links_source', 'user-menu'), 1);
     
     print_r($menu);
+    echo variable_get('menu_secondary_links_source', 'user-menu');
     print_r($variables['secondary_menu']);
     $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
       'links' => menu_navigation_links(variable_get('menu_secondary_links_source', 'user-menu'), 1),
