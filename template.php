@@ -69,6 +69,10 @@ function bootstrap_lite_js_alter(&$js) {
     $js[$cdn]['every_page'] = TRUE;
     $js[$cdn]['weight'] = -100;
   }
+  if('fixed-top' == theme_get_setting('bootstrap_lite_navbar_position')){
+    drupal_add_js('var themeTableHeaderOffset = function() { var offsetheight = jQuery("#navbar").height(); return offsetheight; }', 'inline');
+    drupal_add_js(array('tableHeaderOffset' => 'themeTableHeaderOffset'), 'setting'); 
+  }
 }
 
 /**
