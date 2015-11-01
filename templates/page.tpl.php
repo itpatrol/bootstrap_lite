@@ -108,7 +108,7 @@
   </div>
 </header>
 
-<div class="main-container container">
+<div class="main-container <?php print $container_class;?>">
 
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
