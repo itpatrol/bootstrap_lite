@@ -111,7 +111,22 @@ function bootstrap_lite_preprocess_page(&$variables){
     ),
   );
   drupal_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
+
+  $variables['navbar_classes_array'] = array('navbar');
+  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
+  {
+    $variables['navbar_classes_array'][] = 'navbar-' . $navbar_position;
+  }
   
+  $variables['container_class'] = theme_get_setting('bootstrap_lite_container');
+  
+  if (theme_get_setting('bootstrap_lite_navbar_inverse')) {
+    $variables['navbar_classes_array'][] = 'navbar-inverse';
+  }
+  else {
+    $variables['navbar_classes_array'][] = 'navbar-default';
+  }
+    
   if(bootstrap_lite_is_header('get')){
     if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
       $variables['classes'][] = 'navbar-admin-bar';
@@ -144,20 +159,7 @@ function bootstrap_lite_preprocess_header(&$variables){
     $variables['navigation'] = render($user_menu);
   }
   
-  $variables['navbar_classes_array'] = array('navbar');
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
-  {
-    $variables['navbar_classes_array'][] = 'navbar-' . $navbar_position;
-  }
-  
-  $variables['container_class'] = theme_get_setting('bootstrap_lite_container');
-  
-  if (theme_get_setting('bootstrap_lite_navbar_inverse')) {
-    $variables['navbar_classes_array'][] = 'navbar-inverse';
-  }
-  else {
-    $variables['navbar_classes_array'][] = 'navbar-default';
-  }
+
 }
 
 /**
