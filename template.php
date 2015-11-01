@@ -253,6 +253,14 @@ function bootstrap_lite_button($variables) {
       break;        
   };
   
+  if($variables['element']['#value'] == t('Delete')){
+    $button_class = 'btn-danger';
+  }
+
+  if($variables['element']['#value'] == t('Remove')){
+    $button_class = 'btn-danger';
+  }
+  
   $variables['element']['#attributes']['class'][] = 'btn';
   $variables['element']['#attributes']['class'][] = $button_class;
   
