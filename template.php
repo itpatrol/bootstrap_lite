@@ -176,6 +176,7 @@ function bootstrap_lite_preprocess_page(&$variables){
  * @see page.tpl.php
  */
 function bootstrap_lite_process_page(&$variables) {
+  print_r($variables);
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
 }
 
