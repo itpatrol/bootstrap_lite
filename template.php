@@ -75,7 +75,7 @@ function bootstrap_lite_js_alter(&$js) {
  * Implements hook_preprocess_html().
  */
 function bootstrap_lite_preprocess_html(&$variables) {
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
+  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position')){
     $variables['classes_array'][] = 'navbar-is-' . $navbar_position;
   }
 /*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
