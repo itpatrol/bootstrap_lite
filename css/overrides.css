@@ -319,7 +319,7 @@ table.system-status-report tr.error td.status-icon div:before {
   background: none;
   float: left;
   color: #a94442;
-  
+  padding-left: 15px;
 }
 
 table.system-status-report tr.ok td.status-icon div:before {
@@ -331,6 +331,7 @@ table.system-status-report tr.ok td.status-icon div:before {
   background: none;
   float: left;
   color: #3c763d;
+  padding-left: 15px;
 }
 
 table.system-status-report tr.warning td.status-icon div:before {
@@ -342,6 +343,7 @@ table.system-status-report tr.warning td.status-icon div:before {
   background: none;
   float: left;
   color: #8a6d3b;
+  padding-left: 15px;
 }
 
 table.system-status-report tr.info td.status-icon div:before {
@@ -353,4 +355,5 @@ table.system-status-report tr.info td.status-icon div:before {
   background: none;
   float: left;
   color: #4389f3;
+  padding-left: 15px;
 }
