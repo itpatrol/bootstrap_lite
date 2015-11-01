@@ -260,3 +260,8 @@ ul.nav.nav-pills.tabs-secondary li{
 ul.pager {
   padding-top: 20px;
 }
+
+/*Content styles*/
+.content {
+  margin: 10px 0px;
+}
