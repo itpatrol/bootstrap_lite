@@ -224,7 +224,8 @@ function bootstrap_lite_fieldset($variables) {
  * @ingroup themeable
  */
 function bootstrap_lite_button($variables) {
-  print_r($variables['element']);
+  print_r($variables);
+
   if(isset($variables['element']['#attributes']['class'])){
     $default = TRUE;
     foreach($variables['element']['#attributes']['class'] as $key => $class){
