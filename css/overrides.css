@@ -297,38 +297,39 @@ ul.pager {
 td.status-icon {
   width: 25px;
 }
-table.system-status-report tr.error td.status-icon div {
+table.system-status-report tr.error td.status-icon div:before {
   content: "\f00d";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 13px;
+  font-size: 20px;
   padding-right: 10px;
   background: none;
+  
 }
 
-table.system-status-report tr.ok td.status-icon div {
+table.system-status-report tr.ok td.status-icon div:before {
   content: "\f00c";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 13px;
+  font-size: 20px;
   padding-right: 10px;
   background: none;
 }
 
-table.system-status-report tr.warning td.status-icon div {
+table.system-status-report tr.warning td.status-icon div:before {
   content: "\f071";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 13px;
+  font-size: 20px;
   padding-right: 10px;
   background: none;
 }
 
-table.system-status-report tr.info td.status-icon div {
+table.system-status-report tr.info td.status-icon div:before {
   content: "\f05a";
-  font-family: 'Glyphicons Halflings';
+  font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 13px;
+  font-size: 20px;
   padding-right: 10px;
   background: none;
 }
