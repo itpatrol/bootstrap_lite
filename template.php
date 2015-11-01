@@ -181,6 +181,7 @@ function bootstrap_lite_process_page(&$variables) {
   if ($variables['secondary_menu']) {
     // Build links.
     $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    print_r($variables['secondary_nav']);
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
   }
