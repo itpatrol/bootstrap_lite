@@ -102,13 +102,6 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap_lite'),
   );
 
-  $form['navbar']['bootstrap_lite_navbar_user_menu'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Add cog with user-menu'),
-    '#description' => t('Select if you want cog style right pulled popup menu.'),
-    '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap_lite'),
-  );
-
   drupal_add_css(drupal_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
