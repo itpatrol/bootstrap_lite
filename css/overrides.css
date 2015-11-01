@@ -265,3 +265,24 @@ ul.pager {
 .content {
   margin: 10px 0px;
 }
+
+/* Alert update*/
+.alert a {
+  font-weight:700
+}
+
+.alert-success a {
+  color:#356635
+}
+
+.alert-info a{
+  color:#2d6987
+}
+
+.alert-warning a {
+  color:#a47e3c
+}
+
+.alert-danger a {
+  color:#953b39
+}
