@@ -77,8 +77,10 @@ fieldset .panel-heading a.panel-title:hover{
   border: 1px solid red;
 }
 
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
-  margin-left: 0px;
+.form-item input[type=checkbox], .form-item input[type=radio] {
+  margin: 0px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .form-actions .btn {
