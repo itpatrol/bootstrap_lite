@@ -177,11 +177,12 @@ function bootstrap_lite_preprocess_page(&$variables){
  */
 function bootstrap_lite_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
+  $variables['secondary_nav'] = FALSE;
   if ($variables['secondary_menu']) {
     // Build links.
-    $variables['secondary_menu'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
     // Provide default theme wrapper function.
-    $variables['secondary_menu']['#theme_wrappers'] = array('menu_tree__secondary');
+    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
   }
 }
 
