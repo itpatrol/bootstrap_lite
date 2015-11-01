@@ -32,7 +32,7 @@
  *     listings.
  *   - unpublished: Unpublished nodes visible only to administrators.
  * - $attributes: Array of additional HTML attributes that should be added to
- *   the wrapper element. Flatten with backdrop_attributes().
+ *   the wrapper element. Flatten with drupal_attributes().
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.
@@ -85,7 +85,7 @@
  * @ingroup themeable
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="media <?php print implode(' ', $classes); ?> clearfix"<?php print backdrop_attributes($attributes); ?>>
+<article id="node-<?php print $node->nid; ?>" class="media <?php print implode(' ', $classes); ?> clearfix"<?php print drupal_attributes($attributes); ?>>
   <?php if ($display_submitted): ?>  
     <?php if($user_picture): ?>
       <div class="pull-left">
@@ -107,7 +107,7 @@
     <?php endif; ?>
     <?php print render($title_suffix); ?>
     
-    <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
+    <div class="content"<?php print drupal_attributes($content_attributes); ?>>
       <?php
         // We hide the links now so that we can render them later.
         hide($content['links']);
