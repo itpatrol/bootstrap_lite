@@ -165,7 +165,7 @@ function bootstrap_lite_preprocess_page(&$variables){
     $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
       'links' => $variables['secondary_menu'],
       'attributes' => array(
-        'class' => array('menu', 'nav', 'navbar-nav', 'secondary-menu'),
+        'class' => array('menu', 'nav', 'navbar-nav', 'navbar-right', 'secondary-menu'),
       ),
       'heading' => array(
         'text' => t('Secondary menu'),
