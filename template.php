@@ -144,11 +144,13 @@ function bootstrap_lite_preprocess_page(&$variables){
     }*/
   }
   
-    if (isset($variables['main_menu'])) {
+  $variables['primary_nav'] = FALSE;
+  if (isset($variables['main_menu'])) {
+    $navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position');
     $variables['primary_nav'] = theme('links__system_main_menu', array(
       'links' => $variables['main_menu'],
       'attributes' => array(
-        'class' => array('links', 'inline', 'main-menu'),
+        'class' => array('menu', 'nav', 'navbar-nav', 'main-menu', $navbar_menu_position),
       ),
       'heading' => array(
         'text' => t('Main menu'),
@@ -157,14 +159,13 @@ function bootstrap_lite_preprocess_page(&$variables){
       )
     ));
   }
-  else {
-    $variables['primary_nav'] = FALSE;
-  }
+  $variables['secondary_nav'] = FALSE;
+  
   if (isset($variables['secondary_menu'])) {
     $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
       'links' => $variables['secondary_menu'],
       'attributes' => array(
-        'class' => array('links', 'inline', 'secondary-menu'),
+        'class' => array('menu', 'nav', 'navbar-nav', 'secondary-menu'),
       ),
       'heading' => array(
         'text' => t('Secondary menu'),
@@ -173,11 +174,6 @@ function bootstrap_lite_preprocess_page(&$variables){
       )
     ));
   }
-  else {
-    $variables['secondary_nav'] = FALSE;
-  }
-  
-//  print_r($variables);
 }
 
 
