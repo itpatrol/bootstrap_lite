@@ -635,7 +635,7 @@ function bootstrap_lite_menu_local_tasks(&$variables) {
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills secondary">';
+    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills tabs-secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
