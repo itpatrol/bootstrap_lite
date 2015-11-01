@@ -181,7 +181,6 @@ function bootstrap_lite_process_page(&$variables) {
   if ($variables['secondary_menu']) {
     // Build links.
     $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
-    print_r($variables['secondary_nav']);
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
   }
@@ -989,5 +988,12 @@ function bootstrap_lite_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
+ * implements theme_menu_tree().
+ */
+function bootstrap_lite_menu_tree__secondary(&$variables) {
+  return '<ul class="menu nav navbar-nav secondary">' . $variables['tree'] . '</ul>';
 }
 
