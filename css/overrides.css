@@ -297,6 +297,13 @@ ul.pager {
 td.status-icon {
   width: 25px;
 }
+table.system-status-report tr.error td.status-icon div,
+table.system-status-report tr.ok td.status-icon div,
+table.system-status-report tr.warning td.status-icon div,
+table.system-status-report tr.info td.status-icon div {
+  background: none;
+}
+
 table.system-status-report tr.error td.status-icon div:before {
   content: "\f00d";
   font-family: 'FontAwesome';
