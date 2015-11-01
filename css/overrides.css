@@ -170,6 +170,14 @@ ul.action-links i.fa {
   padding-left: 0px;
 }
 
+.js fieldset.collapsed .fieldset-legend {
+  background-image: none;  
+}
+
+.js fieldset.collapsible .fieldset-legend {
+  background-image: none;
+}
+
 .js fieldset.collapsible .fieldset-title:before {
   content: "\e252";
   font-family: 'Glyphicons Halflings';
