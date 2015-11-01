@@ -982,5 +982,6 @@ function bootstrap_lite_menu_link(array $variables) {
 
 
 function bootstrap_lite_menu_tree__system_secondary_menu($variables){
-  return '<ul ' . drupal_attributes($variables) . '>' . $variables['tree'] . '</ul>';
+  print_r($variables);
+  return '<ul ' . drupal_attributes($variables['attributes']) . '>' . $variables['tree'] . '</ul>';
 }
