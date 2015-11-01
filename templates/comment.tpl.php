@@ -60,9 +60,9 @@
  */
 ?>
 <article class="media <?php if ($new) print "bg-info" ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php if($user_picture): ?>
+  <?php if($picture): ?>
   <div class="pull-left">
-    <?php print $user_picture; ?>
+    <?php print $picture; ?>
   </div>
   <?php endif; ?>  
   <div class="media-body">

@@ -867,7 +867,7 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
  * Implements hook_preprocess_comment().
  */
 function bootstrap_lite_preprocess_comment(&$variables){
-  print_r($variables);
+//  print_r($variables);
   if (theme_get_setting('bootstrap_lite_datetime')) {
     $comment = $variables['elements']['#comment'];
     $variables['timeago'] = t('@time ago', array('@time' => format_interval(time() - $comment->changed)));
