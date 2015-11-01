@@ -243,6 +243,7 @@ function bootstrap_lite_button($variables) {
       $button_class = 'btn-success';
       break;        
     case 'clear':
+    case 'check':
       $button_class = 'btn-warning';
       break;        
     case 'preview':
