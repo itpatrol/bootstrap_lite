@@ -304,6 +304,15 @@ table.system-status-report tr.error td.status-icon div {
   background: none;
 }
 
+table.system-status-report tr.ok td.status-icon div {
+  content: "\f00c";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-size: 13px;
+  padding-right: 10px;
+  background: none;
+}
+
 table.system-status-report tr.warning td.status-icon div {
   content: "\f071";
   font-family: 'Glyphicons Halflings';
@@ -314,7 +323,7 @@ table.system-status-report tr.warning td.status-icon div {
 }
 
 table.system-status-report tr.info td.status-icon div {
-  content: "\f00c";
+  content: "\f05a";
   font-family: 'Glyphicons Halflings';
   font-style: normal;
   font-size: 13px;
