@@ -97,6 +97,7 @@ tr.even {
 
 table.sticky-header {
   z-index: 1000;
+  padding: 8px;
 }
 
 /* Vertical tab fixes. */
