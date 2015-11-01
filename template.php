@@ -78,7 +78,6 @@ function bootstrap_lite_preprocess_html(&$variables) {
   if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position')){
     $variables['classes_array'][] = 'navbar-is-' . $navbar_position;
   }
-  print_r($variables['classes_array']);
 /*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
     }
