@@ -158,6 +158,6 @@
 
   </div>
 </div>
-<footer class="footer container">
+<footer class="footer <?php print $container_class;?>">
   <?php print render($page['footer']); ?>
 </footer>
