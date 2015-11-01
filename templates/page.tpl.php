@@ -93,17 +93,14 @@
       <?php endif; ?>
     </div>
 
-    <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+    <?php if (!empty($main_menu) || !empty($secondary_nav)): ?>
       <div class="navbar-collapse collapse">
         <nav role="navigation">
-          <?php if (!empty($primary_nav)): ?>
-            <?php print render($primary_nav); ?>
+          <?php if (!empty($main_menu)): ?>
+            <?php print render($main_menu); ?>
           <?php endif; ?>
-          <?php if (!empty($secondary_nav)): ?>
-            <?php print render($secondary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($page['navigation'])): ?>
-            <?php print render($page['navigation']); ?>
+          <?php if (!empty($secondary_menu)): ?>
+            <?php print render($secondary_menu); ?>
           <?php endif; ?>
         </nav>
       </div>
