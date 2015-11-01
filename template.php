@@ -153,6 +153,7 @@ function bootstrap_lite_preprocess_page(&$variables){
       ),
     ));
   }
+  print_r($variables['primary_nav']);
   
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
