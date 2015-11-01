@@ -72,6 +72,23 @@ function bootstrap_lite_js_alter(&$js) {
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function bootstrap_lite_preprocess_html(&$variables) {
+  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
+    $variables['classes_array'][] = 'navbar-is-' . $navbar_position;
+  }
+/*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
+      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
+    }
+    if($navbar_position == 'static-top'){
+      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
+    }*/
+
+}
+
+
+/**
  * Implements hook_preprocess_page().
  */
 function bootstrap_lite_preprocess_page(&$variables){
@@ -103,17 +120,6 @@ function bootstrap_lite_preprocess_page(&$variables){
     if (user_access('Use the administration toolbar')) {
       $variables['classes'][] = 'navbar-admin-bar';
     }
-  }
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
-  {
-    $variables['classes'][] = 'navbar-is-' . $navbar_position;
-    
-/*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
-      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
-    }
-    if($navbar_position == 'static-top'){
-      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
-    }*/
   }
   
   $variables['primary_nav'] = FALSE;
