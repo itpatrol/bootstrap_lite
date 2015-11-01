@@ -147,6 +147,17 @@ function bootstrap_lite_preprocess_page(&$variables){
   }
 }
 
+
+/**
+ * Implements hook_process_page().
+ *
+ * @see page.tpl.php
+ */
+function bootstrap_lite_process_page(&$variables) {
+  $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
+}
+
+
 /**
  * Implements hook_preprocess_header().
  */
