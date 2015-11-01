@@ -78,9 +78,7 @@ fieldset .panel-heading a.panel-title:hover{
 }
 
 input.form-checkbox, input.form-radio {
-  margin: 0px;
-  padding-right: 15px;
-  padding-left: 15px;
+  margin: 0px 15px;
 }
 
 .form-actions .btn {
