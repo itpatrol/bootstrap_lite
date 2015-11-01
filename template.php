@@ -224,32 +224,39 @@ function bootstrap_lite_fieldset($variables) {
  * @ingroup themeable
  */
 function bootstrap_lite_button($variables) {
-  print_r($variables);
-
-  if(isset($variables['element']['#attributes']['class'])){
-    $default = TRUE;
-    foreach($variables['element']['#attributes']['class'] as $key => $class){
-      if(FALSE !== strpos($class, 'secondary')){
-        if($variables['element']['#id'] == 'edit-delete'){
-          $variables['element']['#attributes']['class'][$key] = 'btn-danger';
-          $default = FALSE;
-        }else{
-          $class = $variables['element']['#attributes']['class'][$key] = str_replace('secondary', 'default', $class);
-        }
-      }
-      if(FALSE !== strpos($class, 'button')){
-        $variables['element']['#attributes']['class'][$key] = str_replace('button', 'btn', $class);
-        $default = FALSE;
-      }
+  
+  if(is_array($variables['element']['#parents'])){
+    $count  = count($variables['element']['#parents']);
+    $button_type = '';
+    if($count > 0){
+      $button_type = $variables['element']['#parents'][$count - 1]; 
     }
-    if($default){
-      $variables['element']['#attributes']['class'][] = 'btn-default';  
-    }
-  } else{
-    $variables['element']['#attributes']['class'][] = 'btn-default';
   }
-   
+  
+  $button_class = 'btn-default';
+    
+  switch($button_type){
+    case 'submit':
+      $button_class = 'btn-primary';
+      break;        
+    case 'update':
+      $button_class = 'btn-success';
+      break;        
+    case 'clear':
+      $button_class = 'btn-warning';
+      break;        
+    case 'preview':
+      $button_class = 'btn-info';
+      break;        
+    case 'delete':
+      $button_class = 'btn-danger';
+      break;        
+  };
+  
   $variables['element']['#attributes']['class'][] = 'btn';
+  $variables['element']['#attributes']['class'][] = $button_class;
+  
+
   return theme_button($variables);
 }
 
