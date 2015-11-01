@@ -127,8 +127,10 @@ function bootstrap_lite_preprocess_page(&$variables){
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
     
-  if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
-    $variables['classes'][] = 'navbar-admin-bar';
+  if (module_exists('toolbar')) {
+    if (user_access('Use the administration toolbar')) {
+      $variables['classes'][] = 'navbar-admin-bar';
+    }
   }
   if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
   {
