@@ -145,7 +145,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   
   if (isset($variables['secondary_menu'])) {
     $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
-      'links' => $variables['secondary_menu'],
+      'links' => menu_tree(variable_get('menu_secondary_links_source', 'user-menu')),
       'attributes' => array(
         'class' => array('menu', 'nav', 'navbar-nav', 'navbar-right', 'secondary-menu'),
       ),
@@ -177,13 +177,6 @@ function bootstrap_lite_preprocess_page(&$variables){
  */
 function bootstrap_lite_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
-  $variables['secondary_nav'] = FALSE;
-  if ($variables['secondary_menu']) {
-    // Build links.
-    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
-    // Provide default theme wrapper function.
-    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
-  }
 }
 
 /**
