@@ -304,6 +304,10 @@ table.system-status-report tr.info td.status-icon div {
   background: none;
 }
 
+table.system-status-report .status-title {
+  font-weight: bold;
+}
+
 table.system-status-report td {
   padding: 8px;
   color: #333;
