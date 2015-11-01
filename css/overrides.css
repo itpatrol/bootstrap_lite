@@ -97,6 +97,8 @@ tr.even {
 
 table.sticky-header {
   z-index: 1000;
+}
+.sticky-header th {
   padding: 8px;
 }
 
