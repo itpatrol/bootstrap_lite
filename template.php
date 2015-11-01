@@ -823,6 +823,7 @@ function bootstrap_lite_admin_block_content($variables) {
  * @see user-picture.tpl.php
  */
 function bootstrap_lite_preprocess_user_picture(&$variables) {
+  print_r($variables);
   $variables['user_picture'] = '';
 /*  if (config_get('system.core', 'user_pictures')) {
     $account = $variables['account'];
