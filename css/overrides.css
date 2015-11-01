@@ -165,7 +165,7 @@ ul.action-links i.fa {
 }
 
 /* Fix icons for collapsibel fieldset. */
-.js fieldset.collapsible .fieldset-legend {
+html.js fieldset.collapsible .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
@@ -179,7 +179,7 @@ html.js fieldset.collapsible .fieldset-legend:before {
   padding-right: 10px;
 }
 
-.js fieldset.collapsed .fieldset-legend {
+html.js fieldset.collapsed .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
