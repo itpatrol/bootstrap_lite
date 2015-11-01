@@ -100,45 +100,120 @@ tr.even {
 }
 
 /* Vertical tab fixes. */
-.vertical-tab-item {
-  background-color: #f7f7f9;
+
+.tabs-below > .nav-tabs, .tabs-left > .nav-tabs, .tabs-right > .nav-tabs {
+    border-bottom: 0
 }
 
-.vertical-tab-link {
-  color: black;
-}
-.vertical-tab-link span {
-  color: #555;
+.tabs-below > .nav-tabs .summary, .tabs-left > .nav-tabs .summary, .tabs-right > .nav-tabs .summary {
+    color: #999;
+    font-size: 12px
 }
 
-.vertical-tab-link:focus strong,
-.vertical-tab-link:active strong,
-.vertical-tab-link:hover strong,
-.vertical-tab-link:focus .fieldset-legend,
-.vertical-tab-link:active .fieldset-legend,
-.vertical-tab-link:hover .fieldset-legend {
-  text-decoration: none;
-  outline: none;
-}
-.vertical-tab-item:focus,
-.vertical-tab-item:active,
-.vertical-tab-item:hover,
-.vertical-tab-item:focus,
-.vertical-tab-item:active,
-.vertical-tab-item:hover{
-  background-color: white;
+.tab-pane > .panel-heading {
+    display: none
 }
 
-.vertical-tabs-pane .fieldset-wrapper {
-  padding: 1em;
+.tab-content > .active {
+    display: block
 }
 
-a.fieldset-title,
-a.fieldset-title:focus,
-a.fieldset-title:hover {
-  text-decoration: none;
+.tabs-below > .nav-tabs {
+    border-top: 1px solid #ddd
 }
 
+.tabs-below > .nav-tabs > li {
+    margin-top: -1px;
+    margin-bottom: 0
+}
+
+.tabs-below > .nav-tabs > li > a {
+    border-radius: 0 0 4px 4px
+}
+
+.tabs-below > .nav-tabs > li > a:hover, .tabs-below > .nav-tabs > li > a:focus {
+    border-top-color: #ddd;
+    border-bottom-color: transparent
+}
+
+.tabs-below > .nav-tabs > .active > a, .tabs-below > .nav-tabs > .active > a:hover,
+.tabs-below > .nav-tabs > .active > a:focus {
+    border-color: transparent #ddd #ddd
+}
+
+.tabs-left > .nav-tabs, .tabs-right > .nav-tabs {
+    padding-bottom: 20px;
+    width: 220px
+}
+
+.tabs-left > .nav-tabs > li, .tabs-right > .nav-tabs > li {
+    float: none
+}
+
+.tabs-left > .nav-tabs > li:focus, .tabs-right > .nav-tabs > li:focus {
+    outline: 0
+}
+
+.tabs-left > .nav-tabs > li > a, .tabs-right > .nav-tabs > li > a {
+    margin-right: 0;
+    margin-bottom: 3px
+}
+
+.tabs-left > .nav-tabs > li > a:focus, .tabs-right > .nav-tabs > li > a:focus {
+    outline: 0
+}
+
+.tabs-left > .tab-content, .tabs-right > .tab-content {
+    border-radius: 0 4px 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border: 1px solid #ddd;
+    overflow: hidden;
+    padding: 10px 15px
+}
+
+.tabs-left > .nav-tabs {
+    float: left;
+    margin-right: -1px
+}
+
+.tabs-left > .nav-tabs > li > a {
+    border-radius: 4px 0 0 4px
+}
+
+.tabs-left > .nav-tabs > li > a:hover, .tabs-left > .nav-tabs > li > a:focus {
+    border-color: #eee #ddd #eee #eee
+}
+
+.tabs-left > .nav-tabs > .active > a, .tabs-left > .nav-tabs > .active > a:hover,
+.tabs-left > .nav-tabs > .active > a:focus {
+    border-color: #ddd transparent #ddd #ddd;
+    -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, .05)
+}
+
+.tabs-right > .nav-tabs {
+    float: right;
+    margin-left: -1px
+}
+
+.tabs-right > .nav-tabs > li > a {
+    border-radius: 0 4px 4px 0
+}
+
+.tabs-right > .nav-tabs > li > a:hover, .tabs-right > .nav-tabs > li > a:focus {
+    border-color: #eee #eee #eee #ddd;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .05)
+}
+
+.tabs-right > .nav-tabs > .active > a, .tabs-right > .nav-tabs > .active > a:hover,
+.tabs-right > .nav-tabs > .active > a:focus {
+    border-color: #ddd #ddd #ddd transparent
+}
 /* Fix drop button style in admin area. */
 .dropbutton .dropbutton-action > * {
   padding: 6px 12px;  
