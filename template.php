@@ -146,17 +146,11 @@ function bootstrap_lite_preprocess_page(&$variables){
   if (isset($variables['secondary_menu'])) {
     $menu = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
     
-    echo render($menu);
-    $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
-      'links' => $menu,
+    $variables['secondary_nav'] = theme('menu_tree__system_secondary_menu', array(
+      'tree' => $menu,
       'attributes' => array(
         'class' => array('menu', 'nav', 'navbar-nav', 'navbar-right', 'secondary-menu'),
       ),
-      'heading' => array(
-        'text' => t('Secondary menu'),
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      )
     ));
   }
   
@@ -986,3 +980,7 @@ function bootstrap_lite_menu_link(array $variables) {
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
+
+function bootstrap_lite_menu_tree__system_secondary_menu($variables){
+  return '<ul ' . drupal_attributes($variables) . '>' . $variables['tree'] . '</ul>';
+}
