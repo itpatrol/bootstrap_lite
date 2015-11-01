@@ -165,20 +165,13 @@ ul.action-links i.fa {
 }
 
 /* Fix icons for collapsibel fieldset. */
-.js fieldset.collapsible .fieldset-title {
+.js fieldset.collapsible .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
 
-.js fieldset.collapsed .fieldset-legend {
-  background-image: none;  
-}
 
-.js fieldset.collapsible .fieldset-legend {
-  background-image: none;
-}
-
-.js fieldset.collapsible .fieldset-title:before {
+html.js fieldset.collapsible .fieldset-legend:before {
   content: "\e252";
   font-family: 'Glyphicons Halflings';
   font-style: normal;
@@ -186,12 +179,12 @@ ul.action-links i.fa {
   padding-right: 10px;
 }
 
-.js fieldset.collapsed .fieldset-title {
+.js fieldset.collapsed .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
 
-.js fieldset.collapsed .fieldset-title:before {
+html.js fieldset.collapsed .fieldset-legend:before {
   content: "\e250";
   font-family: 'Glyphicons Halflings';
   font-style: normal;
