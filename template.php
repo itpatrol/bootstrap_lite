@@ -818,7 +818,7 @@ function bootstrap_lite_admin_block_content($variables) {
  */
 function bootstrap_lite_preprocess_user_picture(&$variables) {
   $variables['user_picture'] = '';
-  if (config_get('system.core', 'user_pictures')) {
+/*  if (config_get('system.core', 'user_pictures')) {
     $account = $variables['account'];
     if (!empty($account->picture)) {
       // @TODO: Ideally this function would only be passed file entities, but
@@ -853,7 +853,7 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
         $variables['user_picture'] = l($variables['user_picture'], "user/$account->uid", $attributes);
       }
     }
-  }
+  }*/
 }
 
 /**
