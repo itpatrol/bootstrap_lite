@@ -143,6 +143,40 @@ function bootstrap_lite_preprocess_page(&$variables){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
     }*/
   }
+  
+    if (isset($variables['main_menu'])) {
+    $variables['primary_nav'] = theme('links__system_main_menu', array(
+      'links' => $variables['main_menu'],
+      'attributes' => array(
+        'class' => array('links', 'inline', 'main-menu'),
+      ),
+      'heading' => array(
+        'text' => t('Main menu'),
+        'level' => 'h2',
+        'class' => array('element-invisible'),
+      )
+    ));
+  }
+  else {
+    $variables['primary_nav'] = FALSE;
+  }
+  if (isset($variables['secondary_menu'])) {
+    $variables['secondary_nav'] = theme('links__system_secondary_menu', array(
+      'links' => $variables['secondary_menu'],
+      'attributes' => array(
+        'class' => array('links', 'inline', 'secondary-menu'),
+      ),
+      'heading' => array(
+        'text' => t('Secondary menu'),
+        'level' => 'h2',
+        'class' => array('element-invisible'),
+      )
+    ));
+  }
+  else {
+    $variables['secondary_nav'] = FALSE;
+  }
+  
 //  print_r($variables);
 }
 
