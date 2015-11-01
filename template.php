@@ -84,22 +84,6 @@ function bootstrap_lite_is_header($set){
 }
 
 /**
- * Implements hook_preprocess_layout().
- */
-function bootstrap_lite_preprocess_layout(&$variables) {
-  $layout = $variables['layout'];
-  $layout_name = $layout->layout;
-  
-  foreach($layout->content as $key => $block){
-    if($block->module == 'system' && $block->delta == 'header'){
-      bootstrap_lite_is_header(true);
-    }
-  }
-  
-  drupal_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
-}
-
-/**
  * Implements hook_preprocess_page().
  */
 function bootstrap_lite_preprocess_page(&$variables){
