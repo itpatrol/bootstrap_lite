@@ -146,12 +146,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   if (isset($variables['secondary_menu'])) {
     $menu = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
     
-    $variables['secondary_nav'] = theme('menu_tree__system_secondary_menu', array(
-      'links' => $menu,
-      'attributes' => array(
-        'class' => array('menu', 'nav', 'navbar-nav', 'navbar-right', 'secondary-menu'),
-      ),
-    ));
+    $variables['secondary_nav'] = menu_tree_output($menu);
   }
   print_r($variables['secondary_nav']);
   
