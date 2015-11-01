@@ -8,7 +8,7 @@
  * Implements hook_css_alter().
  */
 function bootstrap_lite_css_alter(&$css) {
-  $theme_path = backdrop_get_path('theme', 'bootstrap_lite');
+  $theme_path = drupal_get_path('theme', 'bootstrap_lite');
 
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
@@ -63,7 +63,7 @@ function bootstrap_lite_css_alter(&$css) {
 function bootstrap_lite_js_alter(&$js) {
   if (theme_get_setting('bootstrap_lite_cdn')) {
     $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
-    $js[$cdn] = backdrop_js_defaults();
+    $js[$cdn] = drupal_js_defaults();
     $js[$cdn]['data'] = $cdn;
     $js[$cdn]['type'] = 'external';
     $js[$cdn]['every_page'] = TRUE;
@@ -96,7 +96,7 @@ function bootstrap_lite_preprocess_layout(&$variables) {
     }
   }
   
-  backdrop_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
+  drupal_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
 }
 
 /**
@@ -110,7 +110,7 @@ function bootstrap_lite_preprocess_page(&$variables){
       'content' => 'IE=edge',
     ),
   );
-  backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
+  drupal_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
   
   if(bootstrap_lite_is_header('get')){
     if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
@@ -123,10 +123,10 @@ function bootstrap_lite_preprocess_page(&$variables){
        $config = config('admin_bar.settings');
        
       if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
-        backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
+        drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
       }
       if($navbar_position == 'static-top'){
-        backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
+        drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
       }
     }
   }
@@ -209,7 +209,7 @@ function bootstrap_lite_fieldset($variables) {
   _form_set_class($element, array('form-wrapper'));
   $element['#attributes']['class'][] = 'panel';
   $element['#attributes']['class'][] = 'panel-default';
-  $output = '<fieldset' . backdrop_attributes($element['#attributes']) . '>';
+  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
   if (!empty($element['#title'])) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
     $output .= '<legend class="panel-heading"><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
@@ -628,13 +628,13 @@ function bootstrap_lite_menu_local_tasks(&$variables) {
     $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs tabs-primary">';
     $variables['primary']['#suffix'] = '</ul>';
-    $output .= backdrop_render($variables['primary']);
+    $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
     $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
-    $output .= backdrop_render($variables['secondary']);
+    $output .= drupal_render($variables['secondary']);
   }
 
   return $output;
@@ -669,7 +669,7 @@ function bootstrap_lite_menu_local_actions(&$variables) {
     }
   }
   
-  $output = backdrop_render($variables['actions']);
+  $output = drupal_render($variables['actions']);
   if ($output) {
     $output = '<ul class="nav nav-pills action-links">' . $output . '</ul>';
   }
@@ -720,7 +720,7 @@ function bootstrap_lite_preprocess_breadcrumb(&$variables) {
   }
   if (theme_get_setting('bootstrap_lite_breadcrumb_title') && !empty($breadcrumb)) {
     $item = menu_get_item();
-    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : backdrop_get_title();
+    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title();
   }
 }
 
@@ -838,7 +838,7 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
     }
     if (isset($filepath)) {
       $alt = t("@user's picture", array('@user' => user_format_name($account)));
-      // If the image does not have a valid Backdrop scheme (for eg. HTTP),
+      // If the image does not have a valid drupal scheme (for eg. HTTP),
       // don't load image styles.
       if (module_exists('image') && file_valid_uri($filepath) && $style = config_get('system.core', 'user_picture_style')) {
         $variables['user_picture'] = theme('image_style', array('style_name' => $style, 'uri' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => array('class' => 'img-circle')));

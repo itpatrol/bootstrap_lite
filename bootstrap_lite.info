@@ -1,8 +1,21 @@
 name = Bootstrap lite
 description = Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.
-version = 1.x-3.3.5.1
-backdrop = 1.x
-type = theme
+core = 7.x
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
 
 
 settings[bootstrap_lite_cdn] = 3.3.5
