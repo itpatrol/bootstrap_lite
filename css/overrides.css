@@ -247,6 +247,12 @@ h1.page-title {
   border-bottom: 1px dashed #efefef;
 }
 
+/* Tabs style */
+
+ul.nav.nav-pills.tabs-secondary li{
+  margin-top: 10px;
+}
+
 /* Add spacing for pager. */
 ul.pager {
   padding-top: 20px;
