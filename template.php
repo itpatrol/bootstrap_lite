@@ -176,8 +176,13 @@ function bootstrap_lite_preprocess_page(&$variables){
  * @see page.tpl.php
  */
 function bootstrap_lite_process_page(&$variables) {
-  print_r($variables);
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
+  if ($variables['secondary_menu']) {
+    // Build links.
+    $variables['secondary_menu'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    // Provide default theme wrapper function.
+    $variables['secondary_menu']['#theme_wrappers'] = array('menu_tree__secondary');
+  }
 }
 
 /**
