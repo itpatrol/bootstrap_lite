@@ -96,12 +96,34 @@
     <?php if (!empty($main_menu) || !empty($secondary_nav)): ?>
       <div class="navbar-collapse collapse">
         <nav role="navigation">
-          <?php if (!empty($main_menu)): ?>
-            <?php print render($main_menu); ?>
-          <?php endif; ?>
-          <?php if (!empty($secondary_menu)): ?>
-            <?php print render($secondary_menu); ?>
-          <?php endif; ?>
+          <?php if (!empty($main_menu)):
+            print theme('links__system_main_menu', array(
+              'links' => $main_menu,
+              'attributes' => array(
+                'id' => 'main-menu-links',
+                'class' => array('links', 'clearfix'),
+              ),
+              'heading' => array(
+                'text' => t('Main menu'),
+                'level' => 'h2',
+                'class' => array('element-invisible'),
+              ),
+            )); 
+            endif; ?>
+          <?php if (!empty($secondary_menu)): 
+            print theme('links__system_secondary_menu', array(
+              'links' => $secondary_menu,
+              'attributes' => array(
+                'id' => 'secondary-menu-links',
+                'class' => array('links', 'inline', 'clearfix'),
+              ),
+              'heading' => array(
+                'text' => t('Secondary menu'),
+                'level' => 'h2',
+                'class' => array('element-invisible'),
+              ),
+            ));
+            endif; ?>
         </nav>
       </div>
     <?php endif; ?>
