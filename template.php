@@ -136,15 +136,13 @@ function bootstrap_lite_preprocess_page(&$variables){
   {
     $variables['classes'][] = 'navbar-is-' . $navbar_position;
     
-     $config = config('admin_bar.settings');
-     
-    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
+/*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
     }
     if($navbar_position == 'static-top'){
       drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
     }
-  }
+  }*/
 }
 
 
