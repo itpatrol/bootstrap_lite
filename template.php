@@ -175,51 +175,6 @@ function bootstrap_lite_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
 }
 
-
-/**
- * Implements hook_preprocess_header().
- */
-function bootstrap_lite_preprocess_header(&$variables){
-  $variables['navigation'] = '';
-  
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu'))
-  {
-    $user_menu = menu_tree('user-menu');
-    $variables['navigation'] = render($user_menu);
-  }
-  
-
-}
-
-/**
- * Implements hook_links().
- */
-function bootstrap_lite_links__header_menu($menu){
-  $menu['attributes']['class'] = array('menu','nav','navbar-nav');
-  if($navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position')){
-    $menu['attributes']['class'][] = $navbar_menu_position;
-  }
-  return theme_links($menu);
-}
-
-/**
- * Implements hook_menu_tree().
- */
-function bootstrap_lite_menu_tree__user_menu($variables){
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu')){
-    return '
-<ul class="menu nav navbar-nav navbar-right">
-  <li class="dropdown">
-    <a href="#" class="user-cog-link dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-cog"></span></a>
-    <ul class="dropdown-menu">
-    ' . $variables['tree'] . '
-    </ul>
-  </li>
-</ul>';
-  }
-  return theme_menu_tree($variables);
-}
-
 /**
  * Returns HTML for a fieldset form element and its children.
  *
