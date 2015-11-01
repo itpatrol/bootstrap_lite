@@ -990,10 +990,3 @@ function bootstrap_lite_menu_link(array $variables) {
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
-/**
- * implements theme_menu_tree().
- */
-function bootstrap_lite_menu_tree__secondary(&$variables) {
-  return '<ul class="menu nav navbar-nav secondary">' . $variables['tree'] . '</ul>';
-}
-
