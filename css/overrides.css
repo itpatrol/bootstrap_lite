@@ -95,8 +95,8 @@ tr.even {
   background-color: transparent;
 }
 
-.sticky-header th {
-  padding: 8px;
+table.sticky-header {
+  z-index: 1000;
 }
 
 /* Vertical tab fixes. */
