@@ -913,7 +913,20 @@ function bootstrap_lite_status_messages($variables) {
     if (!empty($status_heading[$type])) {
       $output .= '<h4 class="element-invisible">' . $status_heading[$type] . "</h4>\n";
     }
-
+    switch($type){
+      case 'success':
+        $output .= '<i class="fa fa-check"></i> ';
+        break;
+      case 'error':
+        $output .= '<i class="fa fa-times"></i> ';
+        break;
+      case 'warning':
+        $output .= '<i class="fa fa-exclamation-triangle"></i> ';
+        break;
+      case 'info':
+      default:
+        $output .= '<i class="fa fa-info-circle"></i> ';
+    }
     if (count($messages) > 1) {
       $output .= " <ul>\n";
       foreach ($messages as $message) {
