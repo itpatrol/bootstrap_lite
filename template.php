@@ -144,7 +144,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   $variables['secondary_nav'] = FALSE;
   
   if (isset($variables['secondary_menu'])) {
-    $menu = menu_navigation_links(variable_get('menu_secondary_links_source', 'user-menu'), 1);
+    $menu = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
     
     print_r($menu);
     echo variable_get('menu_secondary_links_source', 'user-menu');
