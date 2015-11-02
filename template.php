@@ -976,7 +976,5 @@ function bootstrap_lite_menu_tree__system_secondary_menu($variables){
 }
 
 function bootstrap_lite_menu_tree__system_primary_menu($variables){
-  print_r($variables);
-  
   return '<ul class="menu nav navbar-nav navbar-right secondary-menu">' . $variables['tree'] . '</ul>';
 }
