@@ -19,7 +19,9 @@ body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
   padding-top: 33px;
 }
 
-.nav .leaf {
+.nav li.leaf,
+.nav li.collapsed, 
+.nav li.expanded {
   padding: 0px;
   margin: 0px;
 }
