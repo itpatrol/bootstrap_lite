@@ -143,8 +143,6 @@ function bootstrap_lite_preprocess_page(&$variables){
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
   }
-  
-  print_r($variables);
     
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
