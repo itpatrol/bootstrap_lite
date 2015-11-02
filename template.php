@@ -972,7 +972,8 @@ function bootstrap_lite_menu_link(array $variables) {
 
 
 function bootstrap_lite_menu_tree__system_secondary_menu($variables){
-  return '<ul class="menu nav navbar-nav navbar-right secondary-menu">' . $variables['tree'] . '</ul>';
+  $navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position');
+  return '<ul class="menu nav navbar-nav ' . $navbar_menu_position . ' secondary-menu">' . $variables['tree'] . '</ul>';
 }
 
 function bootstrap_lite_menu_tree__system_primary_menu($variables){
