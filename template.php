@@ -143,6 +143,8 @@ function bootstrap_lite_preprocess_page(&$variables){
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
   }
+  
+  print_r($variables);
     
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
@@ -972,11 +974,11 @@ function bootstrap_lite_menu_link(array $variables) {
 
 
 function bootstrap_lite_menu_tree__system_secondary_menu($variables){
-  print_r($variables);
-  return '<ul ' . drupal_attributes($variables['attributes']) . '>' . $variables['tree'] . '</ul>';
+  return '<ul class="menu nav navbar-nav navbar-right primary-menu">' . $variables['tree'] . '</ul>';
 }
 
 function bootstrap_lite_menu_tree__system_primary_menu($variables){
   print_r($variables);
-  return '<ul ' . drupal_attributes($variables['attributes']) . '>' . $variables['tree'] . '</ul>';
+  
+  return '<ul class="menu nav navbar-nav navbar-right secondary-menu">' . $variables['tree'] . '</ul>';
 }
