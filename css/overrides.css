@@ -19,6 +19,11 @@ body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
   padding-top: 33px;
 }
 
+.nav .leaf {
+  padding: 0px;
+  margin: 0px;
+}
+
 /* Logo fixes to meet navbar requirements by size. */
 .navbar-brand img{
   height: 40px;
