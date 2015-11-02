@@ -126,30 +126,24 @@ function bootstrap_lite_preprocess_page(&$variables){
     }
   }
   
+  // Primary nav.
   $variables['primary_nav'] = FALSE;
-  if (isset($variables['main_menu'])) {
-    $navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position');
-    $variables['primary_nav'] = theme('links__system_main_menu', array(
-      'links' => $variables['main_menu'],
-      'attributes' => array(
-        'class' => array('menu', 'nav', 'navbar-nav', 'main-menu', $navbar_menu_position),
-      ),
-      'heading' => array(
-        'text' => t('Main menu'),
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      )
-    ));
+  if ($variables['main_menu']) {
+    // Build links.
+    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+    // Provide default theme wrapper function.
+    $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__system_primary_menu');
   }
+
+  // Secondary nav.
   $variables['secondary_nav'] = FALSE;
-  
-  if (isset($variables['secondary_menu'])) {
-    $menu = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
-    
-    $variables['secondary_nav'] = menu_tree_output($menu);
+  if ($variables['secondary_menu']) {
+    // Build links.
+    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    // Provide default theme wrapper function.
+    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
   }
-  print_r($variables['secondary_nav']);
-  
+    
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
   }
@@ -978,6 +972,11 @@ function bootstrap_lite_menu_link(array $variables) {
 
 
 function bootstrap_lite_menu_tree__system_secondary_menu($variables){
+  print_r($variables);
+  return '<ul ' . drupal_attributes($variables['attributes']) . '>' . $variables['tree'] . '</ul>';
+}
+
+function bootstrap_lite_menu_tree__system_primary_menu($variables){
   print_r($variables);
   return '<ul ' . drupal_attributes($variables['attributes']) . '>' . $variables['tree'] . '</ul>';
 }
