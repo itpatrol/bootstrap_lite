@@ -4,8 +4,6 @@ description: Built to use Bootstrap, a sleek, intuitive, and powerful front-end 
 core: 8.x
 libraries:
   - bootstrap_lite/global-styling
-  - bootstrap_lite/bootstrapcdn.bootstrap
-  - bootstrap_lite/bootstrapcdn.fontawesome
 regions:
   header: 'Top Bar'
   highlighted: 'Highlighted'
