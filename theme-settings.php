@@ -102,7 +102,6 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap_lite'),
   );
 
-  use Drupal\Core\Url;
   $url = Url::fromUri('http://bootstrapcdn.com');
   $external_link = \Drupal::l(t('External link'), $url);
   
