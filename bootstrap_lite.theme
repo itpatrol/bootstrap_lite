@@ -90,7 +90,11 @@ function bootstrap_lite_preprocess_select(&$variables) {
 function bootstrap_lite_element_info_alter(&$type) {
   // We require Modernizr for button styling.
   if (isset($type['link'])) {
-    print_r($type);
-//    $type['button']['#attached']['library'][] = 'core/modernizr';
+    $type['link']['#theme'] = 'link';
   }
+}
+
+function bootstrap_lite_preprocess_link(&$variables) {
+  echo "HERE";
+  print_r($variables);
 }
