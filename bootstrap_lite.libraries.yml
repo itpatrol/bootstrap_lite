@@ -16,6 +16,8 @@ bootstrap:
       //netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css: { type: external, minified: true }
   js:
     //netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
 
 fontawesome:
   remote: https://github.com/FortAwesome/Font-Awesome
