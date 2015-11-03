@@ -89,9 +89,7 @@ function bootstrap_lite_preprocess_select(&$variables) {
  */
 function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if(isset($form['actions']['delete'])){
-    $delete = $form['actions']['delete'];
-    unset($delete['#title']);
-    unset($delete['#url']);
-    print_r($delete);  
+    $form['actions']['delete']['#attributes']['class'][] = 'btn';
+    $form['actions']['delete']['#attributes']['class'][] = 'btn-danger';    
   }
 }
