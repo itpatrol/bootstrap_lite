@@ -93,6 +93,7 @@ function bootstrap_lite_preprocess_form(&$variables) {
   }
   $delete = $variables['element']['actions']['delete'];
   unset($delete['#title']);
+  unset($delete['#url']);
   print_r($delete);
 //  file_put_contents("/tmp/1111", print_r($variables['element']['actions'],true));
 }
