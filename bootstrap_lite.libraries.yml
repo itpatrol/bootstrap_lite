@@ -1,7 +1,8 @@
 global-styling:
   version: VERSION
   css:
-
+    theme:
+      css/overrides.css: {}
 
 bootstrapcdn.bootstrap:
   remote: https://github.com/twbs/bootstrap
