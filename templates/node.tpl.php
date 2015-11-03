@@ -18,21 +18,21 @@
  * - $display_submitted: Whether submission information should be displayed.
  * - $submitted: Submission information created from $name and $date during
  *   template_preprocess_node().
- * - $classes: Array of classes that can be used to style contextually through
- *   CSS. The default values can be one or more of the following:
+ * - $classes: String of classes that can be used to style contextually through
+ *   CSS. It can be manipulated through the variable $classes_array from
+ *   preprocess functions. The default values can be one or more of the
+ *   following:
  *   - node: The current template type; for example, "theming hook".
  *   - node-[type]: The current node type. For example, if the node is a
- *     "Post" it would result in "node-post". Note that the machine
+ *     "Blog entry" it would result in "node-blog". Note that the machine
  *     name will often be in a short form of the human readable label.
- *   - view-mode-[view_mode]: The View Mode of the node e.g. teaser or full.
- *   - preview: Nodes in preview mode.
+ *   - node-teaser: Nodes in teaser form.
+ *   - node-preview: Nodes in preview mode.
  *   The following are controlled through the node publishing options.
- *   - promoted: Nodes promoted to the front page.
- *   - sticky: Nodes ordered above other non-sticky nodes in teaser
+ *   - node-promoted: Nodes promoted to the front page.
+ *   - node-sticky: Nodes ordered above other non-sticky nodes in teaser
  *     listings.
- *   - unpublished: Unpublished nodes visible only to administrators.
- * - $attributes: Array of additional HTML attributes that should be added to
- *   the wrapper element. Flatten with backdrop_attributes().
+ *   - node-unpublished: Unpublished nodes visible only to administrators.
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.
@@ -41,22 +41,16 @@
  *   the template.
  *
  * Other variables:
- * - $node: Full node entity. Contains data that may not be safe.
- * - $type: Node type; for example, post, page, blog, etc.
+ * - $node: Full node object. Contains data that may not be safe.
+ * - $type: Node type; for example, story, page, blog, etc.
+ * - $comment_count: Number of comments attached to the node.
  * - $uid: User ID of the node author.
  * - $created: Time the node was published formatted in Unix timestamp.
+ * - $classes_array: Array of html class attribute values. It is flattened
+ *   into a string within the variable $classes.
  * - $zebra: Outputs either "even" or "odd". Useful for zebra striping in
  *   teaser listings.
  * - $id: Position of the node. Increments each time it's output.
- * - $comment_count: Number of comments attached to the node.
- * - $comments: The comment-related elements for the node. Contains two values
- *   that are both arrays that need to be rendered through a render() call:
- *   - $comments['comments']: Comments for this node.
- *   - $comments['comment_form']: Form for adding a new comment.
- * - $comment_display_mode: Whether comments are threaded or not, one of the
- *   following PHP constants:
- *   - COMMENT_MODE_FLAT
- *   - COMMENT_MODE_THREADED
  *
  * Node status variables:
  * - $view_mode: View mode; for example, "full", "teaser".
@@ -81,11 +75,12 @@
  *
  * @see template_preprocess()
  * @see template_preprocess_node()
+ * @see template_process()
  *
  * @ingroup themeable
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="media <?php print implode(' ', $classes); ?> clearfix"<?php print backdrop_attributes($attributes); ?>>
+<article id="node-<?php print $node->nid; ?>" class="media <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if ($display_submitted): ?>  
     <?php if($user_picture): ?>
       <div class="pull-left">
@@ -107,9 +102,10 @@
     <?php endif; ?>
     <?php print render($title_suffix); ?>
     
-    <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
+    <div class="content"<?php print $content_attributes; ?>>
       <?php
         // We hide the links now so that we can render them later.
+        hide($content['comments']);
         hide($content['links']);
         print render($content);
       ?>
@@ -118,17 +114,7 @@
     <?php print render($content['links']); ?>
     </div>
   </div>
-  <?php if ($page && isset($comments['comments'])): ?>
-    <section class="comments">
-      <?php if ($comments['comments']): ?>
-        <h2 class="title"><?php print t('Comments'); ?></h2>
-        <?php print render($comments['comments']); ?>
-      <?php endif; ?>
-
-      <?php if ($comments['comment_form']): ?>
-        <h2 class="title comment-form"><?php print t('Add new comment'); ?></h2>
-        <?php print render($comments['comment_form']); ?>
-      <?php endif; ?>
-    </section>
-  <?php endif; ?>
+  <section class="comments">
+    <?php print render($content['comments']); ?>
+  </section>
 </article>

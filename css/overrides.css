@@ -19,6 +19,13 @@ body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
   padding-top: 33px;
 }
 
+.nav li.leaf,
+.nav li.collapsed, 
+.nav li.expanded {
+  padding: 0px;
+  margin: 0px;
+}
+
 /* Logo fixes to meet navbar requirements by size. */
 .navbar-brand img{
   height: 40px;
@@ -77,8 +84,8 @@ fieldset .panel-heading a.panel-title:hover{
   border: 1px solid red;
 }
 
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
-  margin-left: 0px;
+input.form-checkbox, input.form-radio {
+  margin: 0px 10px;
 }
 
 .form-actions .btn {
@@ -95,41 +102,44 @@ tr.even {
   background-color: transparent;
 }
 
+table.sticky-header {
+  z-index: 1000;
+}
 .sticky-header th {
   padding: 8px;
 }
 
 /* Vertical tab fixes. */
-.vertical-tab-item {
+.vertical-tab-button {
   background-color: #f7f7f9;
 }
 
-.vertical-tab-link {
+.vertical-tab-button a {
   color: black;
 }
-.vertical-tab-link span {
+.vertical-tab-button a span {
   color: #555;
 }
 
-.vertical-tab-link:focus strong,
-.vertical-tab-link:active strong,
-.vertical-tab-link:hover strong,
-.vertical-tab-link:focus .fieldset-legend,
-.vertical-tab-link:active .fieldset-legend,
-.vertical-tab-link:hover .fieldset-legend {
+.vertical-tab-button:focus strong,
+.vertical-tab-button:active strong,
+.vertical-tab-button:hover strong,
+.vertical-tab-button:focus .fieldset-legend,
+.vertical-tab-button:active .fieldset-legend,
+.vertical-tab-button:hover .fieldset-legend {
   text-decoration: none;
   outline: none;
 }
-.vertical-tab-item:focus,
-.vertical-tab-item:active,
-.vertical-tab-item:hover,
-.vertical-tab-item:focus,
-.vertical-tab-item:active,
-.vertical-tab-item:hover{
+.vertical-tab-button:focus,
+.vertical-tab-button:active,
+.vertical-tab-button:hover,
+.vertical-tab-button:focus,
+.vertical-tab-button:active,
+.vertical-tab-button:hover{
   background-color: white;
 }
 
-.vertical-tabs-pane .fieldset-wrapper {
+.vertical-tabs-panes .fieldset-wrapper {
   padding: 1em;
 }
 
@@ -165,12 +175,13 @@ ul.action-links i.fa {
 }
 
 /* Fix icons for collapsibel fieldset. */
-.js fieldset.collapsible .fieldset-title {
+html.js fieldset.collapsible .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
 
-.js fieldset.collapsible .fieldset-title:before {
+
+html.js fieldset.collapsible .fieldset-legend:before {
   content: "\e252";
   font-family: 'Glyphicons Halflings';
   font-style: normal;
@@ -178,12 +189,12 @@ ul.action-links i.fa {
   padding-right: 10px;
 }
 
-.js fieldset.collapsed .fieldset-title {
+html.js fieldset.collapsed .fieldset-legend {
   background: none;
   padding-left: 0px;
 }
 
-.js fieldset.collapsed .fieldset-title:before {
+html.js fieldset.collapsed .fieldset-legend:before {
   content: "\e250";
   font-family: 'Glyphicons Halflings';
   font-style: normal;
@@ -246,7 +257,114 @@ h1.page-title {
   border-bottom: 1px dashed #efefef;
 }
 
+/* Tabs style */
+
+ul.nav.nav-pills.tabs-secondary li{
+  margin-top: 10px;
+}
+
 /* Add spacing for pager. */
 ul.pager {
   padding-top: 20px;
+}
+
+/*Content styles*/
+.content {
+  margin: 10px 0px;
+}
+
+/* Alert update*/
+.alert a {
+  font-weight:700
+}
+
+.alert-success a {
+  color:#356635
+}
+
+.alert-info a{
+  color:#2d6987
+}
+
+.alert-warning a {
+  color:#a47e3c
+}
+
+.alert-danger a {
+  color:#953b39
+}
+
+.alert .fa {
+  font-size: 20px;
+  float: left;
+  padding-right: 10px;
+}
+
+/* Status report*/
+table.system-status-report td.status-icon {
+  width: 60px;
+}
+table.system-status-report tr.error td.status-icon div,
+table.system-status-report tr.ok td.status-icon div,
+table.system-status-report tr.warning td.status-icon div,
+table.system-status-report tr.info td.status-icon div {
+  background: none;
+}
+
+table.system-status-report .status-title {
+  font-weight: bold;
+}
+
+table.system-status-report td {
+  padding: 8px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+table.system-status-report tr.error td.status-icon div:before {
+  content: "\f00d";
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 20px;
+  padding-right: 10px;
+  background: none;
+  float: left;
+  color: red;
+  padding-left: 15px;
+}
+
+table.system-status-report tr.ok td.status-icon div:before {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 20px;
+  padding-right: 10px;
+  background: none;
+  float: left;
+  color: green;
+  padding-left: 15px;
+}
+
+table.system-status-report tr.warning td.status-icon div:before {
+  content: "\f071";
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 20px;
+  padding-right: 10px;
+  background: none;
+  float: left;
+  color: orange;
+  padding-left: 15px;
+}
+
+table.system-status-report tr.info td.status-icon div:before {
+  content: "\f05a";
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 20px;
+  padding-right: 10px;
+  background: none;
+  float: left;
+  color: #4389f3;
+  padding-left: 15px;
 }

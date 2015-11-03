@@ -102,14 +102,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap_lite'),
   );
 
-  $form['navbar']['bootstrap_lite_navbar_user_menu'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Add cog with user-menu'),
-    '#description' => t('Select if you want cog style right pulled popup menu.'),
-    '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap_lite'),
-  );
-
-  backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
+  drupal_add_css(drupal_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
     '#title' => t('BootstrapCDN settings'),
@@ -128,7 +121,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
     '#type' => 'select',
     '#title' => t('BootstrapCDN version'),
-    '#options' => backdrop_map_assoc(array(
+    '#options' => drupal_map_assoc(array(
       '3.3.5',
     )),
     '#default_value' => theme_get_setting('bootstrap_lite_cdn', 'bootstrap_lite'),
@@ -139,7 +132,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
     '#type' => 'select',
     '#title' => t('Font Awesome version'),
-    '#options' => backdrop_map_assoc(array(
+    '#options' => drupal_map_assoc(array(
       '4.4.0',
     )),
     '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
@@ -151,13 +144,13 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $default_theme_details = array(
     'name' => t('Default'),
     'description' => t('Pure Bootstrap CSS'),
-    'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
+    'thumbnail' => base_path() . drupal_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
   );
   
   $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
-  $request = backdrop_http_request('http://api.bootswatch.com/3/');
+  $request = drupal_http_request('http://api.bootswatch.com/3/');
   if ($request && $request->code === '200' && !empty($request->data)) {
-    if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
+    if (($api = drupal_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
       foreach ($api['themes'] as $bootswatch_theme) {
         $bootswatch_themes[strtolower($bootswatch_theme['name'])] = bootstrap_bootswatch_template($bootswatch_theme);
       }

@@ -8,7 +8,7 @@
  * Implements hook_css_alter().
  */
 function bootstrap_lite_css_alter(&$css) {
-  $theme_path = backdrop_get_path('theme', 'bootstrap_lite');
+  $theme_path = drupal_get_path('theme', 'bootstrap_lite');
 
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
@@ -63,41 +63,34 @@ function bootstrap_lite_css_alter(&$css) {
 function bootstrap_lite_js_alter(&$js) {
   if (theme_get_setting('bootstrap_lite_cdn')) {
     $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
-    $js[$cdn] = backdrop_js_defaults();
+    $js[$cdn] = drupal_js_defaults();
     $js[$cdn]['data'] = $cdn;
     $js[$cdn]['type'] = 'external';
     $js[$cdn]['every_page'] = TRUE;
     $js[$cdn]['weight'] = -100;
   }
-}
-
-/**
- * Internal function to make sure Header block is rendered.
- */
-function bootstrap_lite_is_header($set){
-  static $is_header;
-  if(0 == strcmp($set, 'get') ){
-    return $is_header;
-  } else{
-    $is_header = $set;
+  if('fixed-top' == theme_get_setting('bootstrap_lite_navbar_position')){
+    drupal_add_js('var themeTableHeaderOffset = function() { var offsetheight = jQuery("#navbar").height(); return offsetheight; }', 'inline');
+    drupal_add_js(array('tableHeaderOffset' => 'themeTableHeaderOffset'), 'setting'); 
   }
 }
 
 /**
- * Implements hook_preprocess_layout().
+ * Implements hook_preprocess_html().
  */
-function bootstrap_lite_preprocess_layout(&$variables) {
-  $layout = $variables['layout'];
-  $layout_name = $layout->layout;
-  
-  foreach($layout->content as $key => $block){
-    if($block->module == 'system' && $block->delta == 'header'){
-      bootstrap_lite_is_header(true);
+function bootstrap_lite_preprocess_html(&$variables) {
+  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position')){
+    $variables['classes_array'][] = 'navbar-is-' . $navbar_position;
+  }
+/*    if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
+      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
     }
-  }
-  
-  backdrop_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
+    if($navbar_position == 'static-top'){
+      drupal_add_js(drupal_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
+    }*/
+
 }
+
 
 /**
  * Implements hook_preprocess_page().
@@ -110,40 +103,8 @@ function bootstrap_lite_preprocess_page(&$variables){
       'content' => 'IE=edge',
     ),
   );
-  backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
-  
-  if(bootstrap_lite_is_header('get')){
-    if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
-      $variables['classes'][] = 'navbar-admin-bar';
-    }
-    if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
-    {
-      $variables['classes'][] = 'navbar-is-' . $navbar_position;
-      
-       $config = config('admin_bar.settings');
-       
-      if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
-        backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
-      }
-      if($navbar_position == 'static-top'){
-        backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
-      }
-    }
-  }
-}
+  drupal_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
 
-/**
- * Implements hook_preprocess_header().
- */
-function bootstrap_lite_preprocess_header(&$variables){
-  $variables['navigation'] = '';
-  
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu'))
-  {
-    $user_menu = menu_tree('user-menu');
-    $variables['navigation'] = render($user_menu);
-  }
-  
   $variables['navbar_classes_array'] = array('navbar');
   if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
   {
@@ -158,35 +119,51 @@ function bootstrap_lite_preprocess_header(&$variables){
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
+    
+  if (module_exists('toolbar')) {
+    if (user_access('Use the administration toolbar')) {
+      $variables['classes'][] = 'navbar-admin-bar';
+    }
+  }
+  
+  // Primary nav.
+  $variables['primary_nav'] = FALSE;
+  if ($variables['main_menu']) {
+    // Build links.
+    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+    // Provide default theme wrapper function.
+    $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__system_primary_menu');
+  }
+
+  // Secondary nav.
+  $variables['secondary_nav'] = FALSE;
+  if ($variables['secondary_menu']) {
+    // Build links.
+    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    // Provide default theme wrapper function.
+    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
+  }
+    
+  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    $variables['content_column_class'] = ' class="col-sm-6"';
+  }
+  elseif (!empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
+    $variables['content_column_class'] = ' class="col-sm-9"';
+  }
+  else {
+    $variables['content_column_class'] = ' class="col-sm-12"';
+  }
+  
 }
 
-/**
- * Implements hook_links().
- */
-function bootstrap_lite_links__header_menu($menu){
-  $menu['attributes']['class'] = array('menu','nav','navbar-nav');
-  if($navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position')){
-    $menu['attributes']['class'][] = $navbar_menu_position;
-  }
-  return theme_links($menu);
-}
 
 /**
- * Implements hook_menu_tree().
+ * Implements hook_process_page().
+ *
+ * @see page.tpl.php
  */
-function bootstrap_lite_menu_tree__user_menu($variables){
-  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu')){
-    return '
-<ul class="menu nav navbar-nav navbar-right">
-  <li class="dropdown">
-    <a href="#" class="user-cog-link dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-cog"></span></a>
-    <ul class="dropdown-menu">
-    ' . $variables['tree'] . '
-    </ul>
-  </li>
-</ul>';
-  }
-  return theme_menu_tree($variables);
+function bootstrap_lite_process_page(&$variables) {
+  $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
 }
 
 /**
@@ -209,7 +186,7 @@ function bootstrap_lite_fieldset($variables) {
   _form_set_class($element, array('form-wrapper'));
   $element['#attributes']['class'][] = 'panel';
   $element['#attributes']['class'][] = 'panel-default';
-  $output = '<fieldset' . backdrop_attributes($element['#attributes']) . '>';
+  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
   if (!empty($element['#title'])) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
     $output .= '<legend class="panel-heading"><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
@@ -238,31 +215,49 @@ function bootstrap_lite_fieldset($variables) {
  * @ingroup themeable
  */
 function bootstrap_lite_button($variables) {
-
-  if(isset($variables['element']['#attributes']['class'])){
-    $default = TRUE;
-    foreach($variables['element']['#attributes']['class'] as $key => $class){
-      if(FALSE !== strpos($class, 'secondary')){
-        if($variables['element']['#id'] == 'edit-delete'){
-          $variables['element']['#attributes']['class'][$key] = 'btn-danger';
-          $default = FALSE;
-        }else{
-          $class = $variables['element']['#attributes']['class'][$key] = str_replace('secondary', 'default', $class);
-        }
-      }
-      if(FALSE !== strpos($class, 'button')){
-        $variables['element']['#attributes']['class'][$key] = str_replace('button', 'btn', $class);
-        $default = FALSE;
-      }
+  
+  if(is_array($variables['element']['#parents'])){
+    $count  = count($variables['element']['#parents']);
+    $button_type = '';
+    if($count > 0){
+      $button_type = $variables['element']['#parents'][$count - 1]; 
     }
-    if($default){
-      $variables['element']['#attributes']['class'][] = 'btn-default';  
-    }
-  } else{
-    $variables['element']['#attributes']['class'][] = 'btn-default';
   }
-   
+  
+  $button_class = 'btn-default';
+    
+  switch($button_type){
+    case 'submit':
+      $button_class = 'btn-primary';
+      break;        
+    case 'update':
+      $button_class = 'btn-success';
+      break;        
+    case 'clear':
+    case 'check':
+      $button_class = 'btn-warning';
+      break;        
+    case 'preview':
+      $button_class = 'btn-info';
+      break;        
+    case 'delete':
+    case 'cancel':
+      $button_class = 'btn-danger';
+      break;        
+  };
+  
+  if($variables['element']['#value'] == t('Delete')){
+    $button_class = 'btn-danger';
+  }
+
+  if($variables['element']['#value'] == t('Remove')){
+    $button_class = 'btn-danger';
+  }
+  
   $variables['element']['#attributes']['class'][] = 'btn';
+  $variables['element']['#attributes']['class'][] = $button_class;
+  
+
   return theme_button($variables);
 }
 
@@ -628,13 +623,13 @@ function bootstrap_lite_menu_local_tasks(&$variables) {
     $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs tabs-primary">';
     $variables['primary']['#suffix'] = '</ul>';
-    $output .= backdrop_render($variables['primary']);
+    $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills secondary">';
+    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills tabs-secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
-    $output .= backdrop_render($variables['secondary']);
+    $output .= drupal_render($variables['secondary']);
   }
 
   return $output;
@@ -669,7 +664,7 @@ function bootstrap_lite_menu_local_actions(&$variables) {
     }
   }
   
-  $output = backdrop_render($variables['actions']);
+  $output = drupal_render($variables['actions']);
   if ($output) {
     $output = '<ul class="nav nav-pills action-links">' . $output . '</ul>';
   }
@@ -720,7 +715,7 @@ function bootstrap_lite_preprocess_breadcrumb(&$variables) {
   }
   if (theme_get_setting('bootstrap_lite_breadcrumb_title') && !empty($breadcrumb)) {
     $item = menu_get_item();
-    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : backdrop_get_title();
+    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title();
   }
 }
 
@@ -815,8 +810,9 @@ function bootstrap_lite_admin_block_content($variables) {
  * @see user-picture.tpl.php
  */
 function bootstrap_lite_preprocess_user_picture(&$variables) {
-  $variables['user_picture'] = '';
-  if (config_get('system.core', 'user_pictures')) {
+ // print_r($variables);
+//  $variables['user_picture'] = '';
+/*  if (config_get('system.core', 'user_pictures')) {
     $account = $variables['account'];
     if (!empty($account->picture)) {
       // @TODO: Ideally this function would only be passed file entities, but
@@ -838,7 +834,7 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
     }
     if (isset($filepath)) {
       $alt = t("@user's picture", array('@user' => user_format_name($account)));
-      // If the image does not have a valid Backdrop scheme (for eg. HTTP),
+      // If the image does not have a valid drupal scheme (for eg. HTTP),
       // don't load image styles.
       if (module_exists('image') && file_valid_uri($filepath) && $style = config_get('system.core', 'user_picture_style')) {
         $variables['user_picture'] = theme('image_style', array('style_name' => $style, 'uri' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => array('class' => 'img-circle')));
@@ -851,13 +847,14 @@ function bootstrap_lite_preprocess_user_picture(&$variables) {
         $variables['user_picture'] = l($variables['user_picture'], "user/$account->uid", $attributes);
       }
     }
-  }
+  }*/
 }
 
 /**
  * Implements hook_preprocess_comment().
  */
 function bootstrap_lite_preprocess_comment(&$variables){
+//  print_r($variables);
   if (theme_get_setting('bootstrap_lite_datetime')) {
     $comment = $variables['elements']['#comment'];
     $variables['timeago'] = t('@time ago', array('@time' => format_interval(time() - $comment->changed)));
@@ -872,4 +869,112 @@ function bootstrap_lite_preprocess_node(&$variables){
     $node = $variables['elements']['#node'];
     $variables['timeago'] = t('@time ago', array('@time' => format_interval(time() - $node->created)));
   }
+}
+
+/**
+ * Implements theme_status_messages().
+ */
+function bootstrap_lite_status_messages($variables) {
+  $display = $variables['display'];
+  $output = '';
+
+  $status_heading = array(
+    'status' => t('Status message'),
+    'error' => t('Error message'),
+    'warning' => t('Warning message'),
+    'info' => t('Informative message'),
+  );
+
+  // Map Drupal message types to their corresponding Bootstrap classes.
+  // @see http://twitter.github.com/bootstrap/components.html#alerts
+  $status_class = array(
+    'status' => 'success',
+    'error' => 'danger',
+    'warning' => 'warning',
+    'info' => 'info',
+  );
+
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $class = (isset($status_class[$type])) ? ' alert-' . $status_class[$type] : '';
+    $output .= "<div class=\"alert alert-block$class\">\n";
+    $output .= "  <a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>\n";
+
+    if (!empty($status_heading[$type])) {
+      $output .= '<h4 class="element-invisible">' . $status_heading[$type] . "</h4>\n";
+    }
+    switch($type){
+      case 'success':
+        $output .= '<i class="fa fa-check"></i> ';
+        break;
+      case 'error':
+        $output .= '<i class="fa fa-times"></i> ';
+        break;
+      case 'warning':
+        $output .= '<i class="fa fa-exclamation-triangle"></i> ';
+        break;
+      case 'info':
+      default:
+        $output .= '<i class="fa fa-info-circle"></i> ';
+    }
+    if (count($messages) > 1) {
+      $output .= " <ul>\n";
+      foreach ($messages as $message) {
+        $output .= '  <li>' . $message . "</li>\n";
+      }
+      $output .= " </ul>\n";
+    }
+    else {
+      $output .= $messages[0];
+    }
+
+    $output .= "</div>\n";
+  }
+  return $output;
+}
+
+/**
+ * implements theme_menu_link().
+ */
+function bootstrap_lite_menu_link(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
+    elseif ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] == 1)) {
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      // Generate as standard dropdown.
+      $element['#title'] .= ' <span class="caret"></span>';
+      $element['#attributes']['class'][] = 'dropdown';
+      $element['#localized_options']['html'] = TRUE;
+
+      // Set dropdown trigger element to # to prevent inadvertant page loading
+      // when a submenu link is clicked.
+      $element['#localized_options']['attributes']['data-target'] = '#';
+      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
+      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+    }
+  }
+  // On primary navigation menu, class 'active' is not set on active menu item.
+  // @see https://drupal.org/node/1896674
+  if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
+    $element['#attributes']['class'][] = 'active';
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+function bootstrap_lite_menu_tree__system_primary_menu($variables){
+  $navbar_menu_position = theme_get_setting('bootstrap_lite_navbar_menu_position');
+  return '<ul class="menu nav navbar-nav ' . $navbar_menu_position . ' primary-menu">' . $variables['tree'] . '</ul>';
+}
+
+function bootstrap_lite_menu_tree__system_secondary_menu($variables){
+  return '<ul class="menu nav navbar-nav navbar-right secondary-menu">' . $variables['tree'] . '</ul>';
 }
