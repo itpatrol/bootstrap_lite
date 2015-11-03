@@ -11,7 +11,7 @@ body.navbar-is-fixed-top-padding{
   padding-top:70px!important;
 }
 
-body div#admin-bar{
+.toolbar-oriented .toolbar-bar{
   z-index:1600;
 }
 
