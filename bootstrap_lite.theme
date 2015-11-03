@@ -24,7 +24,7 @@ function bootstrap_lite_preprocess_input(&$variables) {
         $btn_style = 'btn-default';
         
         
-        if(is_set($variables['element']['#parents']) && is_array($variables['element']['#parents'])){
+        if(isset($variables['element']['#parents']) && is_array($variables['element']['#parents'])){
           $count  = count($variables['element']['#parents']);
           $button_type = '';
           if($count > 0){
