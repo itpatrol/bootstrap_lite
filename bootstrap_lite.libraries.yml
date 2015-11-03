@@ -3,7 +3,7 @@ global-styling:
   css:
 
 
-bootstrapcdn:
+bootstrapcdn.bootstrap:
   remote: https://github.com/twbs/bootstrap
   version: 3.3.5
   license:
@@ -15,3 +15,12 @@ bootstrapcdn:
   js:
     https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js: { type: external, minified: true }
 
+bootstrapcdn.fontawesome:
+  remote: https://github.com/FortAwesome/Font-Awesome
+  version: 4.4.0
+  license:
+    name: SIL OFL
+    url: http://fontawesome.io/license/
+    gpl-compatible: true
+  css:
+    https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css: { type: external, minified: true }
