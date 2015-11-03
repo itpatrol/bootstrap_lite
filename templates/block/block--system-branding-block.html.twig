@@ -15,19 +15,19 @@
  */
 #}
 <div class="navbar-header">
+  
+  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="name navbar-brand" >
   {% if site_logo %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="logo navbar-btn pull-left" >
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-    </a>
+     <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
   {% endif %}
   {% if site_name %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="name navbar-brand" >
-      {{ site_name }}
-      {% if site_slogan %}
-      <small>{{ site_slogan }}</small>
-      {% endif %}
-    </a>
+    {{ site_name }}
+    {% if site_slogan %}
+    <small>{{ site_slogan }}</small>
+    {% endif %}
   {% endif %}
+  </a>
+
   <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
     <span class="sr-only">Toggle navigation</span>

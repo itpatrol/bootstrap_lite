@@ -27,9 +27,10 @@ body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
 }
 
 /* Logo fixes to meet navbar requirements by size. */
-.navbar-header img{
-  height: 34px;
+.navbar-brand img{
+  height: 40px;
   float: left;
+  margin-top: -10px;
   padding-right: 10px;
 }
 
