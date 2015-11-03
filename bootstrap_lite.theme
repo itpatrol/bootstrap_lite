@@ -23,6 +23,37 @@ function bootstrap_lite_preprocess_input(&$variables) {
         $variables['attributes']['class'][] = 'btn'; 
         
         $btn_style = 'btn-default';
+        
+        
+        if(is_array($variables['element']['#parents'])){
+          $count  = count($variables['element']['#parents']);
+          $button_type = '';
+          if($count > 0){
+            $button_type = $variables['element']['#parents'][$count - 1]; 
+          }
+
+        
+          switch($button_type){
+            case 'submit':
+              $btn_style = 'btn-primary';
+              break;        
+            case 'update':
+              $btn_style = 'btn-success';
+              break;        
+            case 'clear':
+            case 'check':
+              $btn_style = 'btn-warning';
+              break;        
+            case 'preview':
+              $btn_style = 'btn-info';
+              break;        
+            case 'delete':
+            case 'cancel':
+              $btn_style = 'btn-danger';
+              break;        
+          };
+        }
+        
         if(in_array('button--primary', $variables['attributes']['class'])){
           $btn_style = 'btn-primary';   
         }
