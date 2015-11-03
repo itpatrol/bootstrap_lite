@@ -7,7 +7,8 @@ libraries:
   - bootstrap_lite/bootstrap
   - bootstrap_lite/fontawesome
 regions:
-  navbar: 'Navbar'
+  navbarmenu: 'Navbar Menu'
+  navbarbrand: 'Navbar Brand'
   header: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'
