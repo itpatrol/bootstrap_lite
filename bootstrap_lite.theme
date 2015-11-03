@@ -90,5 +90,5 @@ function bootstrap_lite_preprocess_select(&$variables) {
 function bootstrap_lite_preprocess_form(&$variables) {
   $test = $variables;
   unset($test['element']['#title']);
-  file_put_contents('/tmp/1111', var_export($variables,true));
+  file_put_contents('/tmp/1111', print_r($test,true));
 }
