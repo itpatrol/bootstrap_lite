@@ -92,6 +92,7 @@ function bootstrap_lite_element_info_alter(&$type) {
   if (isset($type['link'])) {
     $type['link']['#theme'] = 'link';
   }
+  print_r($type);
 }
 
 function bootstrap_lite_preprocess_link(&$variables) {
