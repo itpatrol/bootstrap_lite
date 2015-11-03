@@ -41,3 +41,10 @@ function bootstrap_lite_preprocess_form_element(&$variables) {
 function bootstrap_lite_preprocess_textarea(&$variables) {
   $variables['attributes']['class'][] = 'form-control';
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for select templates.
+ */
+function bootstrap_lite_preprocess_select(&$variables) {
+  $variables['attributes']['class'][] = 'form-control';
+}
