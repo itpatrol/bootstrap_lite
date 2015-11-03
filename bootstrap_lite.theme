@@ -88,5 +88,5 @@ function bootstrap_lite_preprocess_select(&$variables) {
  * Implements hook_preprocess_HOOK() for form templates.
  */
 function bootstrap_lite_preprocess_form(&$variables) {
-  print_r($variables['element']);
+  print_r($variables['element']['delete']);
 }
