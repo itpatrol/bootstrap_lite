@@ -6,7 +6,7 @@
  * Theme settings file for Bootstrap.
  */
 
-function bootstrap_lite_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function bootstrap_lite_form_system_theme_settings_alter(&$form, FormState $form_state) {
 
   $form['tweaks'] = array(
     '#type' => 'fieldset',
