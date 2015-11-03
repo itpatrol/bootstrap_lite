@@ -19,7 +19,6 @@ function bootstrap_lite_preprocess_input(&$variables) {
     case 'radio':
       break;
     case 'submit':
-        print_r($variables);
         $variables['attributes']['class'][] = 'btn'; 
         
         $btn_style = 'btn-default';
@@ -31,8 +30,6 @@ function bootstrap_lite_preprocess_input(&$variables) {
           if($count > 0){
             $button_type = $variables['element']['#parents'][$count - 1]; 
           }
-
-        
           switch($button_type){
             case 'submit':
               $btn_style = 'btn-primary';
@@ -70,6 +67,7 @@ function bootstrap_lite_preprocess_input(&$variables) {
  * Implements hook_preprocess_HOOK() for form element templates.
  */
 function bootstrap_lite_preprocess_form_element(&$variables) {
+  print_r($variables);
   $variables['attributes']['class'][] = 'form-group';
 }
 
