@@ -97,6 +97,6 @@ function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
 /**
  * Implements hook_preprocess_HOOK() for select templates.
  */
-function bootstrap_lite_preprocess_region(&$variables) {
+function bootstrap_lite_preprocess_region_navbar(&$variables) {
   print_r($variables);
 }
