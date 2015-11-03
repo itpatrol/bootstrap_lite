@@ -85,25 +85,12 @@ function bootstrap_lite_preprocess_select(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for form templates.
+ * Implements hook_element_info_alter().
  */
-function bootstrap_lite_preprocess_form(&$variables) {
- /* foreach($variables['element']['actions'] as $key => $val){
-    echo $key."\n";
+function bootstrap_lite_element_info_alter(&$type) {
+  // We require Modernizr for button styling.
+  if (isset($type['link'])) {
+    print_r($type);
+//    $type['button']['#attached']['library'][] = 'core/modernizr';
   }
-  $delete = $variables['element']['actions']['delete'];
-  unset($delete['#title']);
-  unset($delete['#url']);
-  print_r($delete);*/
-  
-  if(isset( $variables['element']['actions']['delete'])){
-    $variables['element']['actions']['delete']['#attributes']['class'][] = 'btn';
-    $variables['element']['actions']['delete']['#attributes']['class'][] = 'btn-danger';
-  }
-  
-//  file_put_contents("/tmp/1111", print_r($variables['element']['actions'],true));
-}
-
-function bootstrap_lite_preprocess_link(&$variables) {
-  print_r($variables);
 }
