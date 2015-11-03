@@ -21,7 +21,13 @@ function bootstrap_lite_preprocess_input(&$variables) {
     case 'submit':
         print_r($variables);
         $variables['attributes']['class'][] = 'btn'; 
-        $variables['attributes']['class'][] = 'btn-default'; 
+        
+        $btn_style = 'btn-default';
+        if(in_array('button--primary', $variables['attributes']['class'])){
+          $btn_style = 'btn-primary';   
+        }
+        
+        $variables['attributes']['class'][] = $btn_style;
       break;
     default:
       $variables['attributes']['class'][] = 'form-control'; 
