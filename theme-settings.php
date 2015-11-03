@@ -121,9 +121,9 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
     '#type' => 'select',
     '#title' => t('BootstrapCDN version'),
-    '#options' => drupal_map_assoc(array(
-      '3.3.5',
-    )),
+    '#options' => array(
+      '3.3.5' => '3.3.5',
+    ),
     '#default_value' => theme_get_setting('bootstrap_lite_cdn', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
@@ -132,9 +132,9 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
     '#type' => 'select',
     '#title' => t('Font Awesome version'),
-    '#options' => drupal_map_assoc(array(
-      '4.4.0',
-    )),
+    '#options' => array(
+      '4.4.0' => '4.4.0',
+    ),
     '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
