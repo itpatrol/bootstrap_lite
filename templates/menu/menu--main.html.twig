@@ -38,9 +38,9 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass(classes) }}>
-    {% else %}
       <ul class="nav navbar-nav">
+    {% else %}
+      <ul class="dropdown-menu">
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes }}>
