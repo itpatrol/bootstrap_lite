@@ -48,9 +48,15 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container container">
+<header id="navbar" role="banner" class="navbar navbar-static-top navbar-static-top-padding">
+  <div class="container">
+    {{ page.navbar }}
+  </div>
+</header>
 
-  <header role="banner">
+<div class="layout-container container">
+  
+  <header role="header">
     {{ page.header }}
   </header>
 
