@@ -12,7 +12,8 @@ bootstrap:
     url: https://github.com/twbs/bootstrap/blob/master/LICENSE
     gpl-compatible: true
   css:
-    //netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css: { type: external, minified: true }
+    theme:
+      //netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css: { type: external, minified: true }
   js:
     //netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js: { type: external, minified: true }
 
@@ -24,4 +25,5 @@ fontawesome:
     url: http://fontawesome.io/license/
     gpl-compatible: true
   css:
-    //maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css: { type: external, minified: true }
+    theme:
+      //maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css: { type: external, minified: true }
