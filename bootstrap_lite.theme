@@ -19,6 +19,7 @@ function bootstrap_lite_preprocess_input(&$variables) {
     case 'radio':
       break;
     case 'submit':
+        print_r($variables);
         $variables['attributes']['class'][] = 'btn'; 
         $variables['attributes']['class'][] = 'btn-default'; 
       break;
