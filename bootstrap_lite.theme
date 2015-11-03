@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Bartik theme.
+ */
+
+use Drupal\Core\Template\Attribute;
+
+
+/**
+ * Implements hook_preprocess_HOOK() for input templates.
+ */
+function bootstrap_lite_preprocess_input(&$variables) {
+  print_r($variables);
+}
