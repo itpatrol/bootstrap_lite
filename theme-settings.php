@@ -12,16 +12,16 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     return;
   }
 
-  $form['bootstrap'] = array(
+  $form['bootstrap_lite'] = array(
     '#type' => 'vertical_tabs',
-    '#prefix' => '<h2><small>' . t('Bootstrap Settings') . '</small></h2>',
+    '#title' => t('Bootstrap lite Settings'),
     '#weight' => -10,
   );
   // Components.
   $form['tweaks'] = array(
     '#type' => 'fieldset',
     '#title' => t('Tweaks'),
-    '#group' => 'bootstrap',
+    '#group' => 'bootstrap_lite',
   );
 
   $form['tweaks']['bootstrap_lite_container'] = array(
@@ -47,7 +47,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#title' => t('Breadcrumbs'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
-    '#group' => 'bootstrap',
+    '#group' => 'bootstrap_lite',
   );
   $form['breadcrumbs']['bootstrap_lite_breadcrumb_home'] = array(
     '#type' => 'checkbox',
@@ -68,7 +68,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#description' => t('Navigation bar settings.'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
-    '#group' => 'bootstrap',
+    '#group' => 'bootstrap_lite',
   );
   $form['navbar']['bootstrap_lite_navbar_position'] = array(
     '#type' => 'select',
@@ -112,7 +112,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
       '!bootstrapcdn' => $external_link,
     '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing huge performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme. If you choose to disable this setting, you must provide your own Bootstrap source and/or optional CDN delivery implementation.') . '</div>',
     )),
-    '#group' => 'bootstrap',
+    '#group' => 'bootstrap_lite',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,    
   );
