@@ -38,10 +38,11 @@
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes }}>
-        {{ link(item.title, item.url) }}
         {% if item.below %}
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }}<span class="caret"></span></a>
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% else %}
+          {{ link(item.title, item.url) }}
         {% endif %}
       </li>
     {% endfor %}
