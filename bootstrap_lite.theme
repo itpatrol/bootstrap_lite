@@ -68,7 +68,6 @@ function bootstrap_lite_preprocess_input(&$variables) {
  */
 function bootstrap_lite_preprocess_form_element(&$variables) {
   $variables['attributes']['class'][] = 'form-group';
-  print_r($variables['attributes']);
 }
 
 /**
