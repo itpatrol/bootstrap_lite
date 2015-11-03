@@ -93,3 +93,22 @@ function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
     $form['actions']['delete']['#attributes']['class'][] = 'btn-danger';    
   }
 }
+
+
+/**
+ * Prepares variables for single local task link templates.
+ *
+ * Default template: menu-local-task.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: A render element containing:
+ *     - #link: A menu link array with 'title', 'url', and (optionally)
+ *       'localized_options' keys.
+ *     - #active: A boolean indicating whether the local task is active.
+ */
+function bootstrap_lite_preprocess_menu_local_task(&$variables) {
+  if (!empty($variables['element']['#active'])) {
+    print_r($variables['element']);
+  }  
+}
