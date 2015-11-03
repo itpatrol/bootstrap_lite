@@ -92,6 +92,6 @@ function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
     $delete = $form['actions']['delete'];
     unset($delete['#title']);
     unset($delete['#url']);
-    print_r($form['actions']['delete']);  
+    print_r($delete);  
   }
 }
