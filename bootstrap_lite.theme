@@ -14,6 +14,10 @@ use Drupal\Core\Template\Attribute;
 function bootstrap_lite_preprocess_input(&$variables) {
 //  print_r($variables);
   switch($variables['attributes']['type']){
+    case 'file':
+    case 'checkbox':
+    case 'radio':
+      break;
     case 'submit':
         $variables['attributes']['class'][] = 'btn'; 
         $variables['attributes']['class'][] = 'btn-default'; 
