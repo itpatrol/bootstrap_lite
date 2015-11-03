@@ -102,13 +102,15 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap_lite'),
   );
 
+  use Drupal\Core\Url;
+  $url = Url::fromUri('http://bootstrapcdn.com');
+  $external_link = \Drupal::l(t('External link'), $url);
+  
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
     '#title' => t('BootstrapCDN settings'),
     '#description' => t('Use !bootstrapcdn to serve the Bootstrap framework files. Enabling this setting will prevent this theme from attempting to load any Bootstrap framework files locally. !warning', array(
-      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
-        'external' => TRUE,
-      )),
+      '!bootstrapcdn' => $external_link,
     '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing huge performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme. If you choose to disable this setting, you must provide your own Bootstrap source and/or optional CDN delivery implementation.') . '</div>',
     )),
     '#group' => 'bootstrap',
@@ -162,9 +164,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#collapsed' => TRUE,
     '#group' => 'bootstrap',
     '#description' => t('Use !bootstrapcdn to serve a Bootswatch Theme. Choose Bootswatch theme here.', array(
-      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
-        'external' => TRUE,
-      )),
+      '!bootstrapcdn' => $external_link,
     )),
   );
 
