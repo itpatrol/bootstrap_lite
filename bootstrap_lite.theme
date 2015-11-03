@@ -88,7 +88,7 @@ function bootstrap_lite_preprocess_select(&$variables) {
  * Implements hook_form_alter() to add classes to the search form.
  */
 function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if(isset($form['actions']['delete']){
+  if(isset($form['actions']['delete'])){
     print_r($form['actions']['delete']);  
   }
 }
