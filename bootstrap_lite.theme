@@ -105,5 +105,5 @@ function bootstrap_lite_preprocess_form(&$variables) {
 }
 
 function bootstrap_lite_preprocess_link(&$variables) {
-  echo "HERE";
+  print_r($variables);
 }
