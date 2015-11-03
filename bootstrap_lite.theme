@@ -88,7 +88,7 @@ function bootstrap_lite_preprocess_select(&$variables) {
  * Implements hook_preprocess_HOOK() for form templates.
  */
 function bootstrap_lite_preprocess_form(&$variables) {
-  foreach($variables as $key => $val){
+  foreach($variables['children'] as $key => $val){
     echo $key."\n";
   }
 }
