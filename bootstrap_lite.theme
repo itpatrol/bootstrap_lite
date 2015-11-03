@@ -85,17 +85,10 @@ function bootstrap_lite_preprocess_select(&$variables) {
 }
 
 /**
- * Implements hook_element_info_alter().
+ * Implements hook_form_alter() to add classes to the search form.
  */
-function bootstrap_lite_element_info_alter(&$type) {
-  // We require Modernizr for button styling.
-  if (isset($type['link'])) {
-    $type['link']['#theme'] = 'link';
+function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if(isset($form['actions']['delete']){
+    print_r($form['actions']['delete']);  
   }
-  print_r($type);
-}
-
-function bootstrap_lite_preprocess_link(&$variables) {
-  echo "HERE";
-  print_r($variables);
 }
