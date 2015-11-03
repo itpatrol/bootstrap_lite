@@ -103,3 +103,7 @@ function bootstrap_lite_preprocess_form(&$variables) {
   
 //  file_put_contents("/tmp/1111", print_r($variables['element']['actions'],true));
 }
+
+function bootstrap_lite_preprocess_link(&$variables) {
+  echo "HERE";
+}
