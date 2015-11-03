@@ -91,5 +91,5 @@ function bootstrap_lite_preprocess_form(&$variables) {
   foreach($variables['element'] as $key => $val){
     echo $key."\n";
   }
-  print_r($variables['element']['actions']);
+  file_put_contents("/tmp/1111", print_r($variables['element']['actions'],true));
 }
