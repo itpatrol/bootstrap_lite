@@ -99,6 +99,6 @@ function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
  */
 function bootstrap_lite_preprocess_region(&$variables) {
   if($variables['region'] == 'navbar'){
-    print_r($variables);
+    print_r(array_keys($variables));
   }
 }
