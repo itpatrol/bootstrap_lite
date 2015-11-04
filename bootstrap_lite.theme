@@ -126,6 +126,9 @@ function bootstrap_lite_preprocess_details(&$variables) {
   $variables['attributes']['class'][] = 'panel-default';
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for node_add_list templates.
+ */
 function bootstrap_lite_preprocess_node_add_list(&$variables) {
   $variables['types'] = array();
   if (!empty($variables['content'])) {
@@ -139,4 +142,11 @@ function bootstrap_lite_preprocess_node_add_list(&$variables) {
       );
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for status_messages templates.
+ */
+function bootstrap_lite_preprocess_status_messages(&$variables){
+  print_r($variables);
 }
