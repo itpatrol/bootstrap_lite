@@ -25,16 +25,15 @@
 #}
 {% block messages %}
 {% for type, messages in message_list %}
-  {%
+  {% if type == "error" %}
+    {%  set type2 = "danger" %}
+  {% elseif type == "status" %}
+    {%  set type2 = "info" %}
+  {% else %}
+    {%  set type2 = type %}
+  {%  endif %}
   
-    if type == "error"
-      set type2 = "danger"
-    elseif type == "status"
-      set type2 = "info"
-    else
-      set type2 = type
-    endif
-    
+  {%  
     set classes = [
       'alert',
       'alert-' ~ type2,
