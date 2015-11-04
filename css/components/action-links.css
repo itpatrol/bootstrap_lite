@@ -32,7 +32,6 @@
 .button-action:before {
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   content: "\f067";
   font-weight: 900;
   margin-left: -0.1em; /* LTR */
