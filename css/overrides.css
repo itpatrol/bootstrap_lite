@@ -23,6 +23,12 @@ ul li.collapsed,ul li.expanded,ul li.leaf{
   list-style:none;list-style-image:none;
 }
 
+/* Admin style overwrite*/
+
+.panel.panel-default {
+  padding: 0px;
+}
+
 /* Form style fixes. */
 html.js fieldset.collapsed{
   height:auto;
