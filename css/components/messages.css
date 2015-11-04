@@ -6,7 +6,6 @@
 .alert-success:before {
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   content: "\f00c";
   color: green;
   padding-right: 15px;
@@ -17,7 +16,6 @@
 [dir="rtl"] .alert-success:after {
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   content: "\f00c";
   color: green;
   padding-left: 15px;
@@ -29,7 +27,6 @@
   content: "\f071";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   color: orange;
   padding-right: 15px;
   vertical-align: top;
@@ -40,7 +37,6 @@
   content: "\f071";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   color: orange;
   padding-left: 15px;
   vertical-align: top;
@@ -51,7 +47,6 @@
   content: "\f00d";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   color: red;
   padding-right: 15px;
   vertical-align: top;
@@ -62,7 +57,6 @@
   content: "\f00d";
   font-family: 'FontAwesome';
   font-style: normal;
-  font-size: 20px;
   color: red;
   padding-left: 15px;
   vertical-align: top;
