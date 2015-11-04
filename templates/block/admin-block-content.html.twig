@@ -25,12 +25,12 @@
 {% if content %}
   <ul{{ attributes.addClass(classes) }}>
     {% for item in content %}
-      <li class="list-group-item">
+      <a href="{{ item.url }}" class="list-group-item">
         <h4 class="list-group-item-heading">{{ item.link }}</h4>
         {% if item.description %}
           <p class="list-group-item-text">{{ item.description }}</p>
         {% endif %}
-      </li>
+      </a>
     {% endfor %}
   </ul>
 {% endif %}
