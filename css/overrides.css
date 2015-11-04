@@ -16,27 +16,6 @@
   padding: 0px;
 }
 
-/* Form style fixes. */
-html.js fieldset.collapsed{
-  height:auto;
-}
-
-fieldset legend.panel-heading{
-  float:left;line-height:1em;margin:0;
-}
-
-fieldset .panel-body{
-  clear:both;
-}
-
-fieldset .panel-heading a.panel-title{
-  color:inherit;display:block;margin:-10px -15px;padding:10px 15px;
-}
-
-fieldset .panel-heading a.panel-title:hover{
-  text-decoration:none;
-}
-
 /* Table style fixes. */
 th.checkbox,td.checkbox,th.radio,td.radio{
   display:table-cell;
@@ -67,34 +46,6 @@ table.sticky-header {
 /* Fix Hanle for drag&drop. */
 div.handle {
   box-sizing: content-box;
-}
-
-/* Fix icons for collapsibel fieldset. */
-html.js fieldset.collapsible .fieldset-legend {
-  background: none;
-  padding-left: 0px;
-}
-
-
-html.js fieldset.collapsible .fieldset-legend:before {
-  content: "\e252";
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-size: 13px;
-  padding-right: 10px;
-}
-
-html.js fieldset.collapsed .fieldset-legend {
-  background: none;
-  padding-left: 0px;
-}
-
-html.js fieldset.collapsed .fieldset-legend:before {
-  content: "\e250";
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-size: 13px;
-  padding-right: 10px;
 }
 
 /* Fix VIEWS UI. */
