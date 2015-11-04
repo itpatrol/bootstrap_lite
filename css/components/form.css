@@ -105,6 +105,7 @@ abbr.ajax-changed {
 }
 
 .form-inline .form-actions {
-  margin-top: 0px;
   display: inline-block;
+  vertical-align: middle;
+  margin: 0px;
 }
