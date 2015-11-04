@@ -121,9 +121,10 @@ function bootstrap_lite_preprocess_menu_local_task(&$variables) {
  * Implements hook_preprocess_HOOK() for details templates.
  */
 function bootstrap_lite_template_preprocess_details(&$variables) {
-  $variables['attributes']['class'][] = 'panel panel-default';
-  
-  if(isset($variables['summary_attributes')){
+  $variables['attributes']['class'][] = 'panel';
+  $variables['attributes']['class'][] = 'panel-default';
+
+  if(isset($variables['summary_attributes'])){
     $variables['summary_attributes']['class'][] = 'panel-heading';  
   }
 }
