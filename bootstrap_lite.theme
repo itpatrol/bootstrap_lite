@@ -191,3 +191,10 @@ function bootstrap_lite_preprocess_form(&$variables) {
   }
 //  print_r( $variables['element']['#id']);
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for menu templates.
+ */
+function bootstrap_lite_preprocess_menu(&$variables) {
+  $variables['menu_position'] = theme_get_setting('bootstrap_lite_navbar_menu_position');
+}
