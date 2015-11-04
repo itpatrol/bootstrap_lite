@@ -183,3 +183,7 @@ table.system-status-report tr.info td.status-icon div:before {
   color: #4389f3;
   padding-left: 15px;
 }
+
+.system-modules td.checkbox {
+  text-align: center;
+}
