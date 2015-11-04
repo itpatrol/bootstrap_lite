@@ -10,6 +10,12 @@ vertical-tabs:
     component:
       css/components/vertical-tabs.css: {}
 
+messages:
+  version: VERSION
+  css:
+    component:
+      css/components/messages.css:  { weight: -10 }
+
 bootstrap:
   remote: https://github.com/twbs/bootstrap
   version: 3.3.5

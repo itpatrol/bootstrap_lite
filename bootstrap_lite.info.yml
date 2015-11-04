@@ -6,6 +6,7 @@ libraries:
   - bootstrap_lite/global-styling
   - bootstrap_lite/bootstrap
   - bootstrap_lite/fontawesome
+  - bootstrap_lite/messages
 
 libraries-override:
   core/drupal.vertical-tabs:
