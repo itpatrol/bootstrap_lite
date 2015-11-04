@@ -167,5 +167,5 @@ function bootstrap_lite_preprocess_views_view_table(&$variables) {
  * Implements hook_preprocess_HOOK() for table templates.
  */
 function bootstrap_lite_preprocess_form(&$variables) {
-  print_r(array_keys($variables['element']));
+  echo $variables['element']['form_id'];
 }
