@@ -25,7 +25,7 @@ ul li.collapsed,ul li.expanded,ul li.leaf{
 
 /* Admin style overwrite*/
 
-details.panel.panel-default {
+.panel.panel-default {
   padding: 0px;
 }
 
