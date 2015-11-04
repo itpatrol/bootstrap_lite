@@ -75,7 +75,6 @@
 }
 .vertical-tabs__menu-item.is-selected a {
   color: #004f80;
-  padding-left: 11px; /* LTR */
   border-bottom: none;
   outline: none;
   text-decoration: none;
@@ -83,7 +82,6 @@
 [dir=rtl] .vertical-tabs__menu-item.is-selected a {
   border-left: 0;
   padding-left: 15px;
-  padding-right: 11px;
 }
 .vertical-tabs__menu-item.is-selected a:hover,
 .vertical-tabs__menu-item.is-selected a:focus {
