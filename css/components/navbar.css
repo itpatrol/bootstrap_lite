@@ -3,6 +3,10 @@
  * Visual styles for menu.
  */
 
+body.navbar-is-fixed-top {
+  margin-top: 50px;
+}
+
 .nav li.leaf,
 .nav li.collapsed, 
 .nav li.expanded {
