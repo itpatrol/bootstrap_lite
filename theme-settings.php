@@ -89,42 +89,5 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap_lite'),
   );
 
-//  $url = Url::fromUri('http://bootstrapcdn.com');
-//  $external_link = \Drupal::l(t('External link'), $url);
-  $external_link ="";
-  $form['bootstrap_lite_cdn'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('BootstrapCDN settings'),
-    '#description' => t('Use !bootstrapcdn to serve the Bootstrap framework files. Enabling this setting will prevent this theme from attempting to load any Bootstrap framework files locally. !warning', array(
-      '!bootstrapcdn' => $external_link,
-    '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing huge performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme. If you choose to disable this setting, you must provide your own Bootstrap source and/or optional CDN delivery implementation.') . '</div>',
-    )),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,    
-  );
-  // BootstrapCDN.
-
-  $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
-    '#type' => 'select',
-    '#title' => t('BootstrapCDN version'),
-    '#options' => array(
-      '3.3.5' => '3.3.5',
-    ),
-    '#default_value' => theme_get_setting('bootstrap_lite_cdn', 'bootstrap_lite'),
-    '#empty_option' => t('Disabled'),
-    '#empty_value' => NULL,
-  );
-  
-  $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
-    '#type' => 'select',
-    '#title' => t('Font Awesome version'),
-    '#options' => array(
-      '4.4.0' => '4.4.0',
-    ),
-    '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
-    '#empty_option' => t('Disabled'),
-    '#empty_value' => NULL,
-  );
-
 }
 
