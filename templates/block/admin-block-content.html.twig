@@ -26,7 +26,7 @@
   <ul{{ attributes.addClass(classes) }}>
     {% for item in content %}
       <a href="{{ item.url }}" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ item.link }}</h4>
+        <h4 class="list-group-item-heading">{{ item.title }}</h4>
         {% if item.description %}
           <p class="list-group-item-text">{{ item.description }}</p>
         {% endif %}
