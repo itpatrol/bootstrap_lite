@@ -87,46 +87,6 @@ table.sticky-header {
   padding: 8px;
 }
 
-/* Vertical tab fixes. */
-.vertical-tab-button {
-  background-color: #f7f7f9;
-}
-
-.vertical-tab-button a {
-  color: black;
-}
-.vertical-tab-button a span {
-  color: #555;
-}
-
-.vertical-tab-button:focus strong,
-.vertical-tab-button:active strong,
-.vertical-tab-button:hover strong,
-.vertical-tab-button:focus .fieldset-legend,
-.vertical-tab-button:active .fieldset-legend,
-.vertical-tab-button:hover .fieldset-legend {
-  text-decoration: none;
-  outline: none;
-}
-.vertical-tab-button:focus,
-.vertical-tab-button:active,
-.vertical-tab-button:hover,
-.vertical-tab-button:focus,
-.vertical-tab-button:active,
-.vertical-tab-button:hover{
-  background-color: white;
-}
-
-.vertical-tabs-panes .fieldset-wrapper {
-  padding: 1em;
-}
-
-a.fieldset-title,
-a.fieldset-title:focus,
-a.fieldset-title:hover {
-  text-decoration: none;
-}
-
 /* Fix drop button style in admin area. */
 .dropbutton .dropbutton-action > * {
   padding: 6px 12px;  
