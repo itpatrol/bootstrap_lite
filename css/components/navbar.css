@@ -7,6 +7,10 @@ body.navbar-is-fixed-top {
   margin-top: 60px;
 }
 
+.toolbar-fixed  .navbar-fixed-top {
+  padding-top:79px;
+}
+
 .nav li.leaf,
 .nav li.collapsed, 
 .nav li.expanded {
