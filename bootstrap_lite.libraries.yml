@@ -4,6 +4,12 @@ global-styling:
     theme:
       css/overrides.css: {}
 
+vertical-tabs:
+  version: VERSION
+  css:
+    component:
+      css/components/vertical-tabs.css: {}
+
 bootstrap:
   remote: https://github.com/twbs/bootstrap
   version: 3.3.5

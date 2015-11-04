@@ -6,6 +6,17 @@ libraries:
   - bootstrap_lite/global-styling
   - bootstrap_lite/bootstrap
   - bootstrap_lite/fontawesome
+
+libraries-override:
+  core/drupal.vertical-tabs:
+    css:
+      component:
+        misc/vertical-tabs.css: false
+        
+libraries-extend:
+  core/drupal.vertical-tabs:
+    - bootstrap_lite/vertical-tabs
+    
 regions:
   navbarmenu: 'Navbar Menu'
   navbarbrand: 'Navbar Brand'
