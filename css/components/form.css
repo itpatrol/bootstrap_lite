@@ -83,6 +83,7 @@ label.option {
   vertical-align: super;
   display: inline-block;
   margin: 0 0.3em;
+  color: red;
 }
 abbr.tabledrag-changed,
 abbr.ajax-changed {
@@ -91,7 +92,7 @@ abbr.ajax-changed {
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 /* Inline error messages. */
