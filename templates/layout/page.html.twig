@@ -48,15 +48,15 @@
  * @see html.html.twig
  */
 #}
+<nav id="navbar" role="banner" class="navbar navbar-default {{ navbar_position }}">
+  <div class="container">
+    {{ page.navbarbrand }}
+    {{ page.navbarmenu }}
+  </div>
+</nav>
 
 <div class="layout-container container">
-  <nav id="navbar" role="banner" class="navbar navbar-default {{ navbar_position }}">
-    <div class="container">
-      {{ page.navbarbrand }}
-      {{ page.navbarmenu }}
-    </div>
-  </nav>
-
+  
   <header role="header">
     {{ page.header }}
   </header>
