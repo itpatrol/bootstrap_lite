@@ -33,7 +33,6 @@
   border-left: none;
   box-shadow: 0 5px 5px -5px hsla(0, 0%, 0%, 0.3);
   border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
 }
 .vertical-tabs__menu-item.last {
   border-bottom: none;
