@@ -23,6 +23,11 @@ ul li.collapsed,ul li.expanded,ul li.leaf{
   list-style:none;list-style-image:none;
 }
 
+/*Content padding*/
+#block-bootstrap-lite-content {
+  padding: 15px 0px;
+}
+
 /* Admin style overwrite*/
 
 .panel.panel-default {
