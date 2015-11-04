@@ -15,6 +15,7 @@
   margin: 10px -100% -1px 0; /* LTR */
   padding: 0;
   border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   line-height: 1;
 }
 [dir="rtl"] .vertical-tabs__menu {
@@ -31,7 +32,8 @@
   border-right: none; /* LTR */
   border-left: none;
   box-shadow: 0 5px 5px -5px hsla(0, 0%, 0%, 0.3);
-  border-bottom: 1px solid #b3b2ad;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 .vertical-tabs__menu-item.last {
   border-bottom: none;
@@ -50,16 +52,16 @@
 .vertical-tabs__menu-item a {
   display: block;
   padding: 10px 15px 15px;
-  border-bottom: 1px solid #b3b2ad;
+  border-bottom: 1px solid #ddd;
   background-color: #f2f2f0;
   text-shadow: 0 1px hsla(0, 0%, 100%, 0.6);
   text-decoration: none;
-  border-left: 1px solid #b3b2ad;
+  border-left: 1px solid #ddd;
 }
 
 [dir=rtl] .vertical-tabs__menu-item a {
   border-left: none;
-  border-right: 1px solid #b3b2ad;
+  border-right: 1px solid #ddd;
 }
 
 .vertical-tabs__menu-item:last-child a {
