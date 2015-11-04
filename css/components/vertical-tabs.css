@@ -7,9 +7,7 @@
   position: relative;
   overflow: hidden;
   margin: 10px 0;
-  border: 1px solid #bdbdbd;
   border-radius: 4px;
-  background: #e6e5e1;
 }
 .vertical-tabs__menu {
   float: left; /* LTR */
@@ -84,18 +82,12 @@
 .vertical-tabs__menu-item.is-selected a:focus {
   color: #007ecc;
 }
-[data-vertical-tabs-panes] {
-  background-color: #fcfcfa;
-}
+
 .vertical-tabs__panes {
   margin: 0 0 0 240px; /* LTR */
-  padding: 10px 15px 10px 15px;
-  border-left: 1px solid #a6a5a1; /* LTR */
 }
 [dir="rtl"] .vertical-tabs__panes {
   margin: 0 240px 0 0;
-  border-left: none;
-  border-right: 1px solid #a6a5a1;
 }
 .vertical-tabs__panes:after {
   content: "";
