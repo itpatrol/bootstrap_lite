@@ -92,6 +92,10 @@ function bootstrap_lite_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
     $form['actions']['delete']['#attributes']['class'][] = 'btn';
     $form['actions']['delete']['#attributes']['class'][] = 'btn-danger';    
   }
+  if(isset($form['actions']['cancel'])){
+    $form['actions']['cancel']['#attributes']['class'][] = 'btn';
+    $form['actions']['cancel']['#attributes']['class'][] = 'btn-warning';    
+  }
 }
 
 
