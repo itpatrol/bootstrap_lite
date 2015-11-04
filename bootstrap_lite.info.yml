@@ -9,6 +9,7 @@ libraries:
   - bootstrap_lite/messages
   - bootstrap_lite/navbar
   - bootstrap_lite/form
+  - bootstrap_lite/tables
 
 libraries-override:
   core/drupal.vertical-tabs:

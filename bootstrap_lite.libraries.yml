@@ -29,6 +29,12 @@ form:
     component:
       css/components/form.css:  {}
 
+tables:
+  version: VERSION
+  css:
+    component:
+      css/components/tables.css:  {}
+
 bootstrap:
   remote: https://github.com/twbs/bootstrap
   version: 3.3.5
