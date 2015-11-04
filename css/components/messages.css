@@ -2,15 +2,6 @@
  * @file
  * Styles for system messages.
  */
-.alert {
-  padding-right: 5px;
-  vertical-align: middle;
-}
-
-[dir="rtl"] .alert {
-  padding-left: 5px;
-  vertical-align: middle;
-}
 
 .alert-success:before {
   font-family: 'FontAwesome';
@@ -18,6 +9,8 @@
   font-size: 20px;
   content: "\f00c";
   color: green;
+  padding-right: 5px;
+  vertical-align: middle;
 }
 
 [dir="rtl"] .alert-success:after {
@@ -26,6 +19,8 @@
   font-size: 20px;
   content: "\f00c";
   color: green;
+  padding-left: 5px;
+  vertical-align: middle;
 }
 
 .alert-warning:before {
@@ -34,6 +29,8 @@
   font-style: normal;
   font-size: 20px;
   color: orange;
+  padding-right: 5px;
+  vertical-align: middle;
 }
 
 [dir="rtl"]  .alert-warning:after {
@@ -42,6 +39,9 @@
   font-style: normal;
   font-size: 20px;
   color: orange;
+  padding-left: 5px;
+  vertical-align: middle;
+
 }
 
 .alert-danger:before {
@@ -50,6 +50,9 @@
   font-style: normal;
   font-size: 20px;
   color: red;
+  padding-right: 5px;
+  vertical-align: middle;
+
 }
 
 [dir="rtl"] .alert-danger:after {
@@ -58,4 +61,6 @@
   font-style: normal;
   font-size: 20px;
   color: red;
+  padding-left: 5px;
+  vertical-align: middle;
 }
