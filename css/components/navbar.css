@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Visual styles for menu.
+ */
+
+.nav li.leaf,
+.nav li.collapsed, 
+.nav li.expanded {
+  padding: 0px;
+  margin: 0px;
+}
+
+.navbar-brand img{
+  height: 40px;
+  float: left;
+  margin-top: -10px;
+  padding-right: 10px;
+}
+
+ul li.collapsed,ul li.expanded,ul li.leaf{
+  list-style:none;list-style-image:none;
+}

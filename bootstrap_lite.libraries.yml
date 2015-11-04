@@ -5,6 +5,7 @@ global-styling:
       css/overrides.css: {}
       css/components/messages.css:  {}
       css/components/action-links.css: {}
+      css/components/navbar.css: {}
 
 vertical-tabs:
   version: VERSION
@@ -17,6 +18,12 @@ messages:
   css:
     component:
       css/components/messages.css:  {}
+
+navbar:
+  version: VERSION
+  css:
+    component:
+      css/components/navbar.css:  {}
 
 bootstrap:
   remote: https://github.com/twbs/bootstrap
