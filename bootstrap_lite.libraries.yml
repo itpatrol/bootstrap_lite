@@ -3,9 +3,7 @@ global-styling:
   css:
     theme:
       css/overrides.css: {}
-      css/components/messages.css:  {}
       css/components/action-links.css: {}
-      css/components/navbar.css: {}
 
 vertical-tabs:
   version: VERSION
@@ -24,6 +22,12 @@ navbar:
   css:
     component:
       css/components/navbar.css:  {}
+
+form:
+  version: VERSION
+  css:
+    component:
+      css/components/form.css:  {}
 
 bootstrap:
   remote: https://github.com/twbs/bootstrap

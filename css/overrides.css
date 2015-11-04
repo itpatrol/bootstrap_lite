@@ -37,40 +37,6 @@ fieldset .panel-heading a.panel-title:hover{
   text-decoration:none;
 }
 
-.input-group span.input-group-addon {
-  min-width: 100px;
-}
-
-.contact-site-form span.input-group-addon {
-  min-width: 150px;
-}
-
-.input-group textarea {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 0;
-}
-
-
-.form-control.required::-webkit-input-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required:-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required::-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required:-ms-input-placeholder { color: rgba(255, 0, 14, 0.68); }
-
-.form-item input.error, .form-item textarea.error, .form-item select.error {
-  border: 1px solid red;
-}
-
-input.form-checkbox, input.form-radio {
-  margin: 0px 10px;
-}
-
-.form-actions .btn {
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
 /* Table style fixes. */
 th.checkbox,td.checkbox,th.radio,td.radio{
   display:table-cell;
@@ -101,11 +67,6 @@ table.sticky-header {
 /* Fix Hanle for drag&drop. */
 div.handle {
   box-sizing: content-box;
-}
-
-/* Fix tabs. */
-div.tabs {
-  padding-bottom: 10px;
 }
 
 /* Fix icons for collapsibel fieldset. */
