@@ -124,3 +124,15 @@ function bootstrap_lite_preprocess_details(&$variables) {
   $variables['attributes']['class'][] = 'panel';
   $variables['attributes']['class'][] = 'panel-default';
 }
+
+function bootstrap_lite_preprocess_node_add_list(&$variables) {
+  $variables['types'] = array();
+  if (!empty($variables['content'])) {
+    foreach ($variables['content'] as $type) {
+      $variables['types'][$type->id()] = array(
+        'url' => new Url('node.add', array('node_type' => $type->id())),
+        'title' => $type->label()
+      );
+    }
+  }
+}
