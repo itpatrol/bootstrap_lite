@@ -14,9 +14,14 @@
  * @see template_preprocess_details()
  */
 #}
+{%
+  set classes = [
+    'panel-heading',
+  ]
+%}
 <details{{ attributes }}>
   {%- if title -%}
-    <summary{{ summary_attributes }}>{{ title }}</summary>
+    <summary{{ summary_attributes.addClass(classes) }}>{{ title }}</summary>
   {%- endif -%}
   <div class="details-wrapper panel-body">
     {% if errors %}
