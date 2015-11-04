@@ -132,7 +132,10 @@ function bootstrap_lite_preprocess_node_add_list(&$variables) {
     foreach ($variables['content'] as $type) {
       $variables['types'][$type->id()] = array(
         'url' => new Url('node.add', array('node_type' => $type->id())),
-        'title' => $type->label()
+        'title' => $type->label(),
+        'description' => array(
+          '#markup' => $type->getDescription(),
+        ),
       );
     }
   }
