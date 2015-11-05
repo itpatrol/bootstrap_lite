@@ -8,11 +8,8 @@
   'use strict';
 
   function BootstrapNavbarOffsetChangeHandler(e, offsets) {
-    var css = {};
-    if (typeof offsets.top === 'number') {
-      css.top = offsets.top + 'px';
-    }
-    alert(css.top);
+    var toolbarMargin = ('#toolbar-bar').height() + ('#toolbar-item-administration-tray').height();
+    ('#navbar').attr('data-offset-top', toolbarMargin);
   }
   
   // Bind to custom Drupal events.
