@@ -12,14 +12,18 @@
     
     if($('body').hasClass('toolbar-fixed')){
       toolbarMargin = $('#toolbar-bar').height();
+      if($('#toolbar-item-administration-tray').hasClass('is-active') && $('#toolbar-item-administration-tray').hasClass('toolbar-tray-horizontal')){
+        toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
+      }
+      alert(toolbarMargin);
+      var NavbarMarginBottom = 20;
+      $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height() + NavbarMarginBottom);
+      $('#navbar').css('margin-top', toolbarMargin + 'px');
+      
+      $('#toolbar-bar').css('padding-top', '0px');
+    } else {
+      $('#toolbar-bar').css('padding-top', $('#navbar').height() + 'px');
     }
-    if($('#toolbar-item-administration-tray').hasClass('is-active') && $('#toolbar-item-administration-tray').hasClass('toolbar-tray-horizontal')){
-      toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
-    }
-    alert(toolbarMargin);
-    var NavbarMarginBottom = 20;
-    $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height() + NavbarMarginBottom);
-    $('#navbar').css('margin-top', toolbarMargin + 'px');
   }
   
   // Bind to custom Drupal events.
