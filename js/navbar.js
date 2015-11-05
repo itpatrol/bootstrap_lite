@@ -8,7 +8,11 @@
   'use strict';
 
   function BootstrapNavbarOffsetChangeHandler(e, offsets) {
-    var toolbarMargin = $('#toolbar-bar').height();
+    var toolbarMargin = 0;
+    
+    if($('body').hasClass('toolbar-fixed')){
+      toolbarMargin = $('#toolbar-bar').height();
+    }
     if($('#toolbar-item-administration-tray').hasClass('is-active') && $('#toolbar-item-administration-tray').hasClass('toolbar-tray-horizontal')){
       toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
     }
