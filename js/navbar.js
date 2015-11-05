@@ -8,7 +8,11 @@
   'use strict';
 
   function BootstrapNavbarOffsetChangeHandler(e, offsets) {
-    var toolbarMargin = $('#toolbar-bar').height() + $('#toolbar-item-administration-tray').hasClass('is-active').hasClass('toolbar-tray-horizontal').height();
+    var toolbarMargin = $('#toolbar-bar').height();
+    if($('#toolbar-item-administration-tray').hasClass('is-active') && $('#toolbar-item-administration-tray').hasClass('toolbar-tray-horizontal')){
+      toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
+    }
+    alert(toolbarMargin);
     $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height());
     $('#navbar').css('margin-top', toolbarMargin + 'px');
   }
