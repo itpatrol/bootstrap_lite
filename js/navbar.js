@@ -16,16 +16,15 @@
       if($('#toolbar-item-administration-tray').hasClass('is-active') && $('#toolbar-item-administration-tray').hasClass('toolbar-tray-horizontal')){
         toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
       }
-      alert(toolbarMargin);
       
       $('#navbar').css('margin-top', toolbarMargin + 'px');
       $('#toolbar-bar').css('padding-top', '0px');
     } else {
       $('#toolbar-bar').css('padding-top', $('#navbar').height() + 'px');
     }
-    var dataOffsetTop = toolbarMargin +  $('#navbar').height() + NavbarMarginBottom;
+    var dataOffsetTop = toolbarMargin +  $('#navbar').height();
     $('#navbar').attr('data-offset-top', dataOffsetTop);
-    $('body').css('padding-top', dataOffsetTop + 'px');
+    $('body').css('margin-top', dataOffsetTop + NavbarMarginBottom + 'px');
   }
   
   // Bind to custom Drupal events.
