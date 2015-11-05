@@ -24,6 +24,10 @@ navbar:
       css/components/navbar.css:  {}
   js:
     js/navbar.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.displace
+    - bootstrap_lite/bootstrap
 
 form:
   version: VERSION
