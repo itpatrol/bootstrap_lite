@@ -25,6 +25,6 @@ ul li.collapsed,ul li.expanded,ul li.leaf{
   list-style:none;list-style-image:none;
 }
 
-.navbar-fixed-top {
+#navbar.navbar.navbar-fixed-top {
   z-index: 2000;
 }
