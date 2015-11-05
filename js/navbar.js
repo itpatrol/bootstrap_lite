@@ -23,8 +23,7 @@
       $('#toolbar-bar').css('padding-top', $('#navbar').height() + 'px');
     }
     var dataOffsetTop = toolbarMargin +  $('#navbar').height();
-    $('#navbar').attr('data-offset-top', dataOffsetTop);
-    $('body').css('margin-top', dataOffsetTop + NavbarMarginBottom + 'px');
+    $('body').css('margin-top', $('#navbar').height() + NavbarMarginBottom + 'px');
   }
   
   // Bind to custom Drupal events.
