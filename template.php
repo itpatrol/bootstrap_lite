@@ -959,21 +959,6 @@ function bootstrap_lite_menu_link(array $variables) {
       $element['#localized_options']['attributes']['data-target'] = '#';
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
-    }elseif((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] > 1)) {
-      // Add our own wrapper.
-      unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
-      // Generate as standard dropdown.
-      $element['#title'] .= ' <span class="caret"></span>';
-      $element['#attributes']['class'][] = 'dropdown';
-      $element['#attributes']['class'][] = 'dropdown-submenu';
-      $element['#localized_options']['html'] = TRUE;
-  
-      // Set dropdown trigger element to # to prevent inadvertant page loading
-      // when a submenu link is clicked.
-      $element['#localized_options']['attributes']['data-target'] = '#';
-      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
