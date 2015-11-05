@@ -130,7 +130,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   $variables['primary_nav'] = FALSE;
   if ($variables['main_menu']) {
     // Build links.
-    $variables['primary_nav'] = _bootstrap_lite_menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
     // Provide default theme wrapper function.
     $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__system_primary_menu');
   }
@@ -139,7 +139,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   $variables['secondary_nav'] = FALSE;
   if ($variables['secondary_menu']) {
     // Build links.
-    $variables['secondary_nav'] = _bootstrap_lite_menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
   }
@@ -156,18 +156,6 @@ function bootstrap_lite_preprocess_page(&$variables){
   
 }
 
-/**
- *  Replace menu_tree function to have depth here.
- */
-function _bootstrap_lite_menu_tree($menu_name) {
-  $menu_output = &drupal_static(__FUNCTION__, array());
-
-  if (!isset($menu_output[$menu_name])) {
-    $tree = menu_tree_page_data($menu_name, 9);
-    $menu_output[$menu_name] = menu_tree_output($tree);
-  }
-  return $menu_output[$menu_name];
-}
 
 /**
  * Implements hook_process_page().
