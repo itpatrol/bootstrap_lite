@@ -24,3 +24,7 @@ body.navbar-is-fixed-top {
 ul li.collapsed,ul li.expanded,ul li.leaf{
   list-style:none;list-style-image:none;
 }
+
+#navbar {
+  z-index: 2000;
+}
