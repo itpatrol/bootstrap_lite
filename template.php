@@ -966,6 +966,7 @@ function bootstrap_lite_menu_link(array $variables) {
       // Generate as standard dropdown.
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
+      $element['#attributes']['class'][] = 'dropdown-submenu';
       $element['#localized_options']['html'] = TRUE;
   
       // Set dropdown trigger element to # to prevent inadvertant page loading
