@@ -8,9 +8,8 @@
   'use strict';
 
   function BootstrapNavbarOffsetChangeHandler(e, offsets) {
-    var toolbarMargin = 0;
     var NavbarMarginBottom = 20;
-    toolbarMargin = $('#toolbar-bar').height();
+    var toolbarMargin = $('#toolbar-bar').height();
     
     if($('body').hasClass('toolbar-fixed')){
       
