@@ -7,7 +7,6 @@
 
   'use strict';
   if( $('#navbar').hasClass('navbar-fixed-top')){
-    alert(1);
     var NavbarMarginBottom = 20;
     var toolbarMargin = $('#toolbar-bar').height();
     
@@ -19,9 +18,13 @@
       
       $('#navbar').css('margin-top', toolbarMargin + 'px');
       $('#toolbar-bar').css('padding-top', '0px');
+
     } else {
+      
       $('#toolbar-bar').css('padding-top', $('#navbar').height() + 'px');
+      
     }
+    
     var dataOffsetTop = toolbarMargin +  $('#navbar').height();
     $('#navbar').attr('data-offset-top', dataOffsetTop);
     $('body').css('margin-top', NavbarMarginBottom + 'px');
