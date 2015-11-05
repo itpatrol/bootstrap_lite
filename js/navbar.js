@@ -10,7 +10,7 @@
   function BootstrapNavbarOffsetChangeHandler(e, offsets) {
     var toolbarMargin = $('#toolbar-bar').height() + $('#toolbar-item-administration-tray').height();
     $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height());
-    $('#navbar').attr('margin-top', toolbarMargin);
+    $('#navbar').css('margin-top', toolbarMargin + 'px');
   }
   
   // Bind to custom Drupal events.
