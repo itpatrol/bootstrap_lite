@@ -49,6 +49,7 @@
     var dataOffsetTop = toolbarMargin +  $('#navbar').height();
     $('#navbar').attr('data-offset-top', dataOffsetTop);
     $('body').css('margin-top', NavbarMarginBottom + 'px');
+    $('body').css('padding-top', dataOffsetTop + 'px');
   }
     
   // Bind to custom Drupal events.
@@ -58,7 +59,7 @@
      *
      * @ignore
      */
-    'drupalViewportOffsetChange.BootstrapNavbar': BootstrapNavbarOffsetChangeHandler
+   // 'drupalViewportOffsetChange.BootstrapNavbar': BootstrapNavbarOffsetChangeHandler
   });
 
 }(jQuery, Drupal, window.parent.Drupal.displace));
