@@ -17,7 +17,8 @@
       toolbarMargin = toolbarMargin + $('#toolbar-item-administration-tray').height();
     }
     alert(toolbarMargin);
-    $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height());
+    var NavbarMarginBottom = 20;
+    $('#navbar').attr('data-offset-top', toolbarMargin +  $('#navbar').height() + NavbarMarginBottom);
     $('#navbar').css('margin-top', toolbarMargin + 'px');
   }
   
