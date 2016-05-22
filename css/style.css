@@ -1,0 +1,9 @@
+a {
+    color: #0f60d9;
+    text-decoration: none
+}
+
+a:hover, a:focus {
+    color: #0a4b91;
+    text-decoration: underline
+}
