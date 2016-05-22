@@ -250,3 +250,15 @@ h1.page-title {
 ul.pager {
   padding-top: 20px;
 }
+
+/* Overwrite color for this theme */
+a {
+    color: #0f60d9;
+    text-decoration: none
+}
+
+a:hover, a:focus {
+    color: #0a4b91;
+    text-decoration: underline
+}
+
