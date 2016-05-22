@@ -1,0 +1,9 @@
+deploy:
+  billing:
+    server: 192.99.57.50
+    username: billing
+    dir: '{home}/github/bootstrap_lite/{branch}'
+    env_vars:
+      domain: billingcloud.cc
+    scripts:
+      init: '{home}/scripts/theme_init.sh'
