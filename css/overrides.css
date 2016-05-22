@@ -262,3 +262,31 @@ a:hover, a:focus {
     text-decoration: underline
 }
 
+/* Overwrite navbar color for this theme */
+.navbar-default .navbar-brand {
+    color: #0f60d9
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #0a4b91;
+    background-color: transparent
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #0a4b91;
+    background-color: transparent
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #0f60d9;
+    background-color: transparent
+}
+
+.navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+    color: #444444;
+    background-color: transparent
+}
+
+
