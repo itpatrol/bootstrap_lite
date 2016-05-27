@@ -143,6 +143,13 @@ function bootstrap_lite_preprocess_page(&$variables){
     // Provide default theme wrapper function.
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__system_secondary_menu');
   }
+  
+  //User cog menu
+  if($user_menu = theme_get_setting('bootstrap_lite_navbar_user_menu'))
+  {
+    $variables['user_nav'] = menu_tree('user-menu');
+    $variables['user_nav']['#theme_wrappers'] = array('menu_tree__user_menu');
+  }
     
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['content_column_class'] = ' class="col-sm-6"';
@@ -980,4 +987,22 @@ function bootstrap_lite_menu_tree__system_primary_menu($variables){
 
 function bootstrap_lite_menu_tree__system_secondary_menu($variables){
   return '<ul class="menu nav navbar-nav navbar-right secondary-menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Implements hook_menu_tree().
+ */
+function bootstrap_lite_menu_tree__user_menu($variables){
+  if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu')){
+    return '
+<ul class="menu nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href="#" class="user-cog-link dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-cog"></span></a>
+    <ul class="dropdown-menu">
+    ' . $variables['tree'] . '
+    </ul>
+  </li>
+</ul>';
+  }
 }

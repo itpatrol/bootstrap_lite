@@ -95,6 +95,13 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#empty_option' => t('Normal'),
   );
   
+  $form['navbar']['bootstrap_lite_navbar_user_menu'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Add cog with user-menu'),
+    '#description' => t('Select if you want cog style right pulled popup menu.'),
+    '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap_lite'),
+  );
+  
   $form['navbar']['bootstrap_lite_navbar_inverse'] = array(
     '#type' => 'checkbox',
     '#title' => t('Inverse navbar style'),
