@@ -102,6 +102,9 @@
           <?php if (!empty($primary_nav)): ?>
             <?php print render($primary_nav); ?>
           <?php endif; ?>
+          <?php if (!empty($user_nav)): ?>
+            <?php print render($user_nav); ?>
+          <?php endif; ?>
         </nav>
       </div>
     <?php endif; ?>
